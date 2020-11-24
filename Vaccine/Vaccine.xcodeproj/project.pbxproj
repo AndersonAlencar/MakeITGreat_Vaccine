@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
+		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
 		E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */; };
 		E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B34256BFBC500D58DC5 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
+		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		E2B77B2D256BFBC500D58DC5 /* Vaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880990BD256D23E40003C1DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				880990BE256D24630003C1DE /* GeneralData.json */,
+				880990C3256D249D0003C1DE /* GeneralDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E2B77B24256BFBC400D58DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,7 @@
 		E2B77B2F256BFBC500D58DC5 /* Vaccine */ = {
 			isa = PBXGroup;
 			children = (
+				880990BD256D23E40003C1DE /* Model */,
 				E2B77B66256BFF3C00D58DC5 /* Controller */,
 				E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */,
 				E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */,
@@ -245,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B77B40256BFBCC00D58DC5 /* LaunchScreen.storyboard in Resources */,
+				880990BF256D24630003C1DE /* GeneralData.json in Resources */,
 				E2B77B3D256BFBCC00D58DC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */,
 				E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
