@@ -9,7 +9,7 @@ import Foundation
 
 class VaccineModel {
     
-    enum Status: String{
+    enum Status: String {
         case pending = "Vacina Pendente"
         case delayed = "Dose Atrasada"
         case concluded = "Todas as doses tomadas"
@@ -23,9 +23,9 @@ class VaccineModel {
     var vaccineStatus: Status
     var dosesTaken: [DoseModel]
     
-    init(id: Double, name: String, nDoses: Int, status: Status, nextDoses: [Int]){
+    init(idVaccine: Double, name: String, nDoses: Int, status: Status, nextDoses: [Int]) {
         
-        self.idVaccine = id
+        self.idVaccine = idVaccine
         self.name = name
         self.nDoses = nDoses
         self.vaccineStatus = status
