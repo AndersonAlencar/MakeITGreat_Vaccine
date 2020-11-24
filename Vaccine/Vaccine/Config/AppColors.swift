@@ -24,4 +24,11 @@ extension UIColor {
 
     //Red used on alert card
     static let redCard = UIColor(displayP3Red: 237/255, green: 119/255, blue: 119/255, alpha: 0.38)
+
+    //Gradiente Navigation Colors
+    static let purpleGradiente = UIColor(red: 0.44, green: 0.48, blue: 0.86, alpha: 1.00)
+
+    static let darkBlueGradiente = UIColor(red: 0.13, green: 0.64, blue: 0.87, alpha: 1.00)
+
+    static let lightBlueGradiente = UIColor(red: 0.53, green: 0.82, blue: 0.95, alpha: 1.00)
 }
