@@ -4,7 +4,7 @@
     "nameVaccine": "BCG-ID",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -13,7 +13,7 @@
     "nameVaccine": "Hepatite B",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -22,7 +22,7 @@
     "nameVaccine": "Pentavalente(DTP+Hib+Hep. B)",
     "prevention": "",
     "nDoses": 3,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -31,7 +31,7 @@
     "nameVaccine": "Poliomielite Inativada (VIP)",
     "prevention": "",
     "nDoses": 3,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -40,7 +40,7 @@
     "nameVaccine": "Pneumocócica 10-valente (conjugada)",
     "prevention": "",
     "nDoses": 3,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -49,7 +49,7 @@
     "nameVaccine": "Oral Contra Rotavírus Humano (VORH)",
     "prevention": "",
     "nDoses": 2,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -58,7 +58,7 @@
     "nameVaccine": "Meningocócica C",
     "prevention": "",
     "nDoses": 3,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -67,7 +67,7 @@
     "nameVaccine": "Febre Amarela",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -76,7 +76,7 @@
     "nameVaccine": "Tríplice Viral (SCR)",
     "prevention": "",
     "nDoses": 4,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -85,7 +85,7 @@
     "nameVaccine": "Tríplice Bacteriana (DTP)",
     "prevention": "",
     "nDoses": 5,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -94,7 +94,7 @@
     "nameVaccine": "Poliomielite Oral (VOP)",
     "prevention": "",
     "nDoses": 2,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -103,7 +103,7 @@
     "nameVaccine": "Hepatite A",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -112,7 +112,7 @@
     "nameVaccine": "Tetraviral (SCRV)",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -121,7 +121,7 @@
     "nameVaccine": "Varicela",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -130,7 +130,7 @@
     "nameVaccine": "Papiloma Vírus (HPV)",
     "prevention": "",
     "nDoses": 2,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -139,7 +139,7 @@
     "nameVaccine": "Meningocócica ACWY",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   },
@@ -148,7 +148,7 @@
     "nameVaccine": "Dupla Bacteriana Adulto (dT)",
     "prevention": "",
     "nDoses": 1,
-    "idication": "",
+    "indication": "",
     "adverseEffects": "",
     "againstIndication": ""
   }

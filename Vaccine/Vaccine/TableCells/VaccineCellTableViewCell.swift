@@ -24,6 +24,7 @@ class VaccineCellTableViewCell: UITableViewCell {
         label.textColor = .darkText
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.text = "-"
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -108,7 +109,8 @@ extension VaccineCellTableViewCell: ViewCode {
         ])
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: viewCard.topAnchor, constant: 13),
-            nameLabel.leadingAnchor.constraint(equalTo: viewCard.leadingAnchor, constant: 16)
+            nameLabel.leadingAnchor.constraint(equalTo: viewCard.leadingAnchor, constant: 16),
+            nameLabel.trailingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: -5)
         ])
         NSLayoutConstraint.activate([
             statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),

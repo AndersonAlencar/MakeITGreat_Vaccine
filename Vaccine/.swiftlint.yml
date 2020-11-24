@@ -1,5 +1,5 @@
 disabled_rules:
-#- trailing_whitespace
+- trailing_whitespace
 force_cast: warning # implicitly
 force_try:
   severity: warning # explicitly

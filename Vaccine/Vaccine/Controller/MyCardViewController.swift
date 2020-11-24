@@ -10,7 +10,7 @@ import UIKit
 class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
-
+    
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
         return myView
@@ -64,6 +64,6 @@ class MyCardViewController: UIViewController {
 
 extension MyCardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //
+        //if let searchText = searchController.searchBar.text
     }
 }

@@ -8,6 +8,12 @@
 import UIKit
 
 class MyCardView: UIView {
+    
+    let manager: GeneralManagerModel = {
+        let manager = GeneralManagerModel()
+        manager.loadVaccines()
+        return manager
+    }()
 
     lazy var segmentedVaccine: UISegmentedControl = {
         let segmentedVaccine = UISegmentedControl()
@@ -28,6 +34,7 @@ class MyCardView: UIView {
         vaccinesTable.register(VaccineCellTableViewCell.self, forCellReuseIdentifier: VaccineCellTableViewCell.identifier)
         vaccinesTable.delegate = self
         vaccinesTable.dataSource = self
+        vaccinesTable.tableFooterView = UIView()
         vaccinesTable.translatesAutoresizingMaskIntoConstraints = false
         return vaccinesTable
     }()
@@ -35,6 +42,7 @@ class MyCardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
+        
     }
 
     required init?(coder: NSCoder) {
@@ -70,16 +78,21 @@ extension MyCardView: ViewCode {
 
 extension MyCardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return manager.vaccines!.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
-        cell.configure(with: VaccineModel.init(id: 1, name: "Febre Amarela", nDoses: 3, status: .pending, nextDoses: [2, 2]))
+        cell.configure(with: VaccineModel.init(id: Double(manager.vaccines![indexPath.row].idVaccine), name: manager.vaccines![indexPath.row].nameVaccine, nDoses: manager.vaccines![indexPath.row].nDoses, status: .pending, nextDoses: [2, 2]))
+        cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("clicou celula \(indexPath.row)")
+//    }
 }

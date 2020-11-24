@@ -7,16 +7,16 @@
 
 import Foundation
 
-class GeneralDataModel {
+class GeneralDataMode: Codable {
     var idVaccine: Int
     var nameVaccine: String
     var prevention: String
-    var nDoses: String
+    var nDoses: Int
     var indication: String
     var adverseEffects: String
     var againstIndication: String
 
-    init(idVaccine: Int, nameVaccine: String, prevention: String, nDoses: String, indication: String, adverseEffects: String, againstIndication: String) {
+    init(idVaccine: Int, nameVaccine: String, prevention: String, nDoses: Int, indication: String, adverseEffects: String, againstIndication: String) {
         self.idVaccine = idVaccine
         self.nameVaccine = nameVaccine
         self.prevention = prevention
