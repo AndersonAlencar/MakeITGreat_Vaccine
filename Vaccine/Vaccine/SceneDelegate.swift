@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let navigationController = UINavigationController(rootViewController: MyCardViewController())
+        navigationController.navigationBar.prefersLargeTitles = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene

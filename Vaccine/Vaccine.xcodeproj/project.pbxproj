@@ -17,6 +17,7 @@
 		E2B77B56256BFBCD00D58DC5 /* VaccineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B55256BFBCD00D58DC5 /* VaccineUITests.swift */; };
 		E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */; };
 		E2B77B6B256C00A000D58DC5 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */; };
+		E2B77B7D256D3C0700D58DC5 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E2B77B55256BFBCD00D58DC5 /* VaccineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineUITests.swift; sourceTree = "<group>"; };
 		E2B77B57256BFBCD00D58DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
+		E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */,
+				E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B77B7D256D3C0700D58DC5 /* MyCardView.swift in Sources */,
 				E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
