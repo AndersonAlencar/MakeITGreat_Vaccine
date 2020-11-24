@@ -10,6 +10,7 @@ import UIKit
 class SelectedVaccineView: UIView {
     
     var controller: SelectedVaccineViewController? = SelectedVaccineViewController()
+    
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.showsHorizontalScrollIndicator = false
@@ -52,16 +53,28 @@ class SelectedVaccineView: UIView {
     
     func tableConstraint() {
         self.addSubview(tableView)
-        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16), tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16), tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16), tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
     
     func labelConstraint() {
         self.addSubview(titleLabel)
-        NSLayoutConstraint.activate([titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16), titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)])
     }
+    
     func buttonConstraint() {
         self.addSubview(doseButton)
-        NSLayoutConstraint.activate([doseButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor), doseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)])
+        
+        NSLayoutConstraint.activate([
+            doseButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            doseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)])
     }
     
 }
