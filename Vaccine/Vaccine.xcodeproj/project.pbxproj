@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38AD649F256D2E85001BF981 /* DoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD649D256D2E85001BF981 /* DoseModel.swift */; };
+		38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD649E256D2E85001BF981 /* VaccineModel.swift */; };
+		38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64A4256D2EBA001BF981 /* AppColors.swift */; };
+		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
+		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
 		E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */; };
 		E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B34256BFBC500D58DC5 /* ViewController.swift */; };
@@ -18,6 +23,7 @@
 		E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */; };
 		E2B77B6B256C00A000D58DC5 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */; };
 		E2B77B7D256D3C0700D58DC5 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */; };
+		E2B77B8E256D3E9800D58DC5 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B8D256D3E9800D58DC5 /* ViewCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38AD649D256D2E85001BF981 /* DoseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseModel.swift; sourceTree = "<group>"; };
+		38AD649E256D2E85001BF981 /* VaccineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineModel.swift; sourceTree = "<group>"; };
+		38AD64A4256D2EBA001BF981 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
+		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		E2B77B2D256BFBC500D58DC5 /* Vaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +65,7 @@
 		E2B77B57256BFBCD00D58DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
 		E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
+		E2B77B8D256D3E9800D58DC5 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38AD648B256D2A06001BF981 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				38AD64A4256D2EBA001BF981 /* AppColors.swift */,
+				E2B77B8D256D3E9800D58DC5 /* ViewCode.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		880990BD256D23E40003C1DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				880990BE256D24630003C1DE /* GeneralData.json */,
+				880990C3256D249D0003C1DE /* GeneralDataModel.swift */,
+				38AD649D256D2E85001BF981 /* DoseModel.swift */,
+				38AD649E256D2E85001BF981 /* VaccineModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E2B77B24256BFBC400D58DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +136,8 @@
 		E2B77B2F256BFBC500D58DC5 /* Vaccine */ = {
 			isa = PBXGroup;
 			children = (
+				38AD648B256D2A06001BF981 /* Config */,
+				880990BD256D23E40003C1DE /* Model */,
 				E2B77B66256BFF3C00D58DC5 /* Controller */,
 				E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */,
 				E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */,
@@ -248,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B77B40256BFBCC00D58DC5 /* LaunchScreen.storyboard in Resources */,
+				880990BF256D24630003C1DE /* GeneralData.json in Resources */,
 				E2B77B3D256BFBCC00D58DC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,10 +329,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B77B7D256D3C0700D58DC5 /* MyCardView.swift in Sources */,
+				38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */,
+				38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */,
+				880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */,
 				E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,
+				E2B77B8E256D3E9800D58DC5 /* ViewCode.swift in Sources */,
+				38AD649F256D2E85001BF981 /* DoseModel.swift in Sources */,
 				E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

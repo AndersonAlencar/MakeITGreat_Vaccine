@@ -10,7 +10,7 @@ import UIKit
 class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
-    
+
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
         return myView
