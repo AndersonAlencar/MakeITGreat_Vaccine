@@ -25,7 +25,7 @@ class MyCardView: UIView {
         //vaccinesTable.separatorStyle = .none
         vaccinesTable.showsVerticalScrollIndicator = false
         vaccinesTable.bounces = false
-        //vaccinesTable.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
+        vaccinesTable.register(VaccineCellTableViewCell.self, forCellReuseIdentifier: VaccineCellTableViewCell.identifier)
         vaccinesTable.delegate = self
         vaccinesTable.dataSource = self
         vaccinesTable.translatesAutoresizingMaskIntoConstraints = false
@@ -70,10 +70,16 @@ extension MyCardView: ViewCode {
 
 extension MyCardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
+        cell.configure(with: VaccineModel.init(id: 1, name: "Febre Amarela", nDoses: 3, status: .pending, nextDoses: [2, 2]))
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
     }
 }
