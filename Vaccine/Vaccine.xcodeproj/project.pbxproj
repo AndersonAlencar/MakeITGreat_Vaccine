@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38AD6482256D29D1001BF981 /* VaccineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD6481256D29D1001BF981 /* VaccineModel.swift */; };
+		38AD6487256D29DD001BF981 /* DoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD6486256D29DD001BF981 /* DoseModel.swift */; };
+		38AD648D256D2A15001BF981 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD648C256D2A15001BF981 /* AppColors.swift */; };
 		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
 		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38AD6481256D29D1001BF981 /* VaccineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VaccineModel.swift; path = ../../../../ModelsVaccine/ModelsVaccine/VaccineModel.swift; sourceTree = "<group>"; };
+		38AD6486256D29DD001BF981 /* DoseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoseModel.swift; path = ../../../../ModelsVaccine/ModelsVaccine/DoseModel.swift; sourceTree = "<group>"; };
+		38AD648C256D2A15001BF981 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppColors.swift; path = ../../../../ModelsVaccine/ModelsVaccine/AppColors.swift; sourceTree = "<group>"; };
 		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
 		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		E2B77B2D256BFBC500D58DC5 /* Vaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,11 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38AD648B256D2A06001BF981 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				38AD648C256D2A15001BF981 /* AppColors.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		880990BD256D23E40003C1DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				880990BE256D24630003C1DE /* GeneralData.json */,
 				880990C3256D249D0003C1DE /* GeneralDataModel.swift */,
+				38AD6481256D29D1001BF981 /* VaccineModel.swift */,
+				38AD6486256D29DD001BF981 /* DoseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +131,7 @@
 		E2B77B2F256BFBC500D58DC5 /* Vaccine */ = {
 			isa = PBXGroup;
 			children = (
+				38AD648B256D2A06001BF981 /* Config */,
 				880990BD256D23E40003C1DE /* Model */,
 				E2B77B66256BFF3C00D58DC5 /* Controller */,
 				E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */,
@@ -305,11 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AD648D256D2A15001BF981 /* AppColors.swift in Sources */,
 				880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */,
 				E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
+				38AD6482256D29D1001BF981 /* VaccineModel.swift in Sources */,
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,
+				38AD6487256D29DD001BF981 /* DoseModel.swift in Sources */,
 				E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
