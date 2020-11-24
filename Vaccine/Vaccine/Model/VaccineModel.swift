@@ -9,7 +9,7 @@ import Foundation
 
 class VaccineModel {
 
-    enum Status: String{
+    enum Status: String {
         case pending = "Vacina Pendente"
         case delayed = "Dose Atrasada"
         case concluded = "Todas as doses tomadas"

@@ -13,7 +13,6 @@ class CircularProgressView: UIView {
     fileprivate var progressLayer = CAShapeLayer()
     fileprivate var trackLayer = CAShapeLayer()
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         createCircularPath()
