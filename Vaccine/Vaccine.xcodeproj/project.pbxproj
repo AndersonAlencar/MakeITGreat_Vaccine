@@ -10,6 +10,8 @@
 		38AD649F256D2E85001BF981 /* DoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD649D256D2E85001BF981 /* DoseModel.swift */; };
 		38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD649E256D2E85001BF981 /* VaccineModel.swift */; };
 		38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64A4256D2EBA001BF981 /* AppColors.swift */; };
+		4BEC03F8256D4FD800E8F912 /* VaccineCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */; };
+		4BEC042F256D6B5700E8F912 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */; };
 		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
 		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		38AD649D256D2E85001BF981 /* DoseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseModel.swift; sourceTree = "<group>"; };
 		38AD649E256D2E85001BF981 /* VaccineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineModel.swift; sourceTree = "<group>"; };
 		38AD64A4256D2EBA001BF981 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCellTableViewCell.swift; sourceTree = "<group>"; };
+		4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
 		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		E2B77B2D256BFBC500D58DC5 /* Vaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +102,17 @@
 			children = (
 				38AD64A4256D2EBA001BF981 /* AppColors.swift */,
 				E2B77B8D256D3E9800D58DC5 /* ViewCode.swift */,
+				4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		4BEC03F6256D4F6500E8F912 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		880990BD256D23E40003C1DE /* Model */ = {
@@ -139,6 +152,7 @@
 				38AD648B256D2A06001BF981 /* Config */,
 				880990BD256D23E40003C1DE /* Model */,
 				E2B77B66256BFF3C00D58DC5 /* Controller */,
+				4BEC03F6256D4F6500E8F912 /* TableCells */,
 				E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */,
 				E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */,
 				E2B77B34256BFBC500D58DC5 /* ViewController.swift */,
@@ -337,7 +351,9 @@
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,
 				E2B77B8E256D3E9800D58DC5 /* ViewCode.swift in Sources */,
+				4BEC03F8256D4FD800E8F912 /* VaccineCellTableViewCell.swift in Sources */,
 				38AD649F256D2E85001BF981 /* DoseModel.swift in Sources */,
+				4BEC042F256D6B5700E8F912 /* CircularProgressView.swift in Sources */,
 				E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
