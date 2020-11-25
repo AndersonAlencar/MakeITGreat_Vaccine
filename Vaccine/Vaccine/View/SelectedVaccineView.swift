@@ -20,6 +20,7 @@ class SelectedVaccineView: UIView {
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
+        table.register(DoseTableViewCell.self, forCellReuseIdentifier: DoseTableViewCell.identifier)
         
         return table
     }()

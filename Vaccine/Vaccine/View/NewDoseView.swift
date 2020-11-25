@@ -57,8 +57,6 @@ class NewDoseView: UIView {
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/mm/yy"
         picker.tintColor = .purpleAction
         picker.translatesAutoresizingMaskIntoConstraints = false
         
@@ -75,6 +73,11 @@ class NewDoseView: UIView {
         datePickerConstraint()
         
         cancelButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(addDose), for: .touchUpInside)
+    }
+    
+    @objc func addDose() {
+        self.controller?.addDose(date: datePicker.date)
     }
     
     @objc func dismissModal() {

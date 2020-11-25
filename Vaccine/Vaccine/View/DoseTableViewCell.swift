@@ -27,7 +27,7 @@ class DoseTableViewCell: UITableViewCell {
     
     let doseTitle: UILabel = {
         let label = UILabel()
-        label.text = "Dose 1"
+        //label.text = "Dose 1"
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
@@ -38,7 +38,7 @@ class DoseTableViewCell: UITableViewCell {
     
     let dateTitle: UILabel = {
         let label = UILabel()
-        label.text = "12/12/20"
+        //label.text = "12/12/20"
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .purpleAction
         label.adjustsFontSizeToFitWidth = true
@@ -66,6 +66,11 @@ class DoseTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(doseNumber: String, date: String) {
+        doseTitle.text = doseNumber
+        dateTitle.text = date
     }
     
     func backViewContraint() {

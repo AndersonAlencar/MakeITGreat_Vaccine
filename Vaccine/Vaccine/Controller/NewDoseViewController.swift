@@ -8,6 +8,8 @@
 import UIKit
 
 class NewDoseViewController: UIViewController {
+    
+    weak var delegate: ReloadData?
 
     lazy var newDoseView: NewDoseView = {
         let newView = NewDoseView()
@@ -15,6 +17,8 @@ class NewDoseViewController: UIViewController {
         newView.delegate = self
         return newView
     }()
+    
+    var vaccineSelected: VaccineModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,18 @@ class NewDoseViewController: UIViewController {
     override func loadView() {
         self.view = newDoseView
         
+    }
+    
+    func addDose(date: Date) {
+        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() {
+            if vaccine.idVaccine == vaccineSelected?.idVaccine {
+                let dose = DoseModel(idDoses: 0, date: date)
+                Person.sharedPerson.vaccines[index].dosesTaken.append(dose)
+            }
+        }
+        
+        dismissModal()
+        delegate?.reloadData()
     }
 
 }

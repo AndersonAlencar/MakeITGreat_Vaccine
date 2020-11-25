@@ -36,6 +36,7 @@ class MyCardViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
 
         setGradientLayer()
+        myCardView.vaccinesTable.reloadData()
     }
 
     func setGradientLayer() {
@@ -90,6 +91,7 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
+        
         cell.configure(with: filteredData[indexPath.row])
         cell.selectionStyle = .none
         return cell
