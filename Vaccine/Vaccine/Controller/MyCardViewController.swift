@@ -13,6 +13,8 @@ class MyCardViewController: UIViewController {
     
     let person = Person.sharedPerson
     
+    var filteredData = Person.sharedPerson.vaccines
+    
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
         myView.vaccinesTable.delegate = self
@@ -68,18 +70,24 @@ class MyCardViewController: UIViewController {
 
 extension MyCardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //if let searchText = searchController.searchBar.text
+        if let searchText = searchController.searchBar.text {
+            filteredData = searchText.isEmpty ? person.vaccines : person.vaccines.filter({ (vaccine) -> Bool in
+                return vaccine.name.contains(searchText)
+            })
+        }
+        myCardView.vaccinesTable.reloadData()
+        
     }
 }
 
 extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return person.vaccines.count
+        return filteredData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
-        cell.configure(with: person.vaccines[indexPath.row])
+        cell.configure(with: filteredData[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
