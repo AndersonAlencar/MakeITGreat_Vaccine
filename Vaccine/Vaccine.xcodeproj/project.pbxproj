@@ -11,6 +11,8 @@
 		38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD649E256D2E85001BF981 /* VaccineModel.swift */; };
 		38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64A4256D2EBA001BF981 /* AppColors.swift */; };
 		38AD64AD256D4D3D001BF981 /* DoseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */; };
+		38AD64B5256E7B77001BF981 /* NewDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */; };
+		38AD64BA256E7D87001BF981 /* NewDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64B9256E7D87001BF981 /* NewDoseView.swift */; };
 		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
 		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */; };
@@ -50,6 +52,8 @@
 		38AD649E256D2E85001BF981 /* VaccineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineModel.swift; sourceTree = "<group>"; };
 		38AD64A4256D2EBA001BF981 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseTableViewCell.swift; sourceTree = "<group>"; };
+		38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseViewController.swift; sourceTree = "<group>"; };
+		38AD64B9256E7D87001BF981 /* NewDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseView.swift; sourceTree = "<group>"; };
 		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
 		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				880990EC256D34600003C1DE /* SelectedVaccineView.swift */,
 				38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */,
 				88428B04256D9B2100EE2172 /* EmptyState.swift */,
+				38AD64B9256E7D87001BF981 /* NewDoseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */,
 				880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */,
+				38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				38AD64AD256D4D3D001BF981 /* DoseTableViewCell.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */,
+				38AD64BA256E7D87001BF981 /* NewDoseView.swift in Sources */,
+				38AD64B5256E7B77001BF981 /* NewDoseViewController.swift in Sources */,
 				880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,

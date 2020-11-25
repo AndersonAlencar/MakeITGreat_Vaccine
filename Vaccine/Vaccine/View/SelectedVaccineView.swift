@@ -23,6 +23,7 @@ class SelectedVaccineView: UIView {
         
         return table
     }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +33,7 @@ class SelectedVaccineView: UIView {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
+    
     lazy var doseButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,9 +53,11 @@ class SelectedVaccineView: UIView {
         doseButton.addTarget(self, action: #selector(test), for: .touchUpInside)
         
     }
+    
     @objc func test() {
         delegate?.add()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

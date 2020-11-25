@@ -18,6 +18,7 @@ class SelectedVaccineViewController: UIViewController {
         view.delegate = self
         return view
     }()
+    
     var doses = 0
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class SelectedVaccineViewController: UIViewController {
         self.view = selectedView
     }
 }
+
 extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if doses == 0 {
@@ -42,16 +44,26 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
         
         return DoseTableViewCell()
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
 protocol AddDelegate: class {
     func add()
 }
+
 extension SelectedVaccineViewController: AddDelegate {
     func add() {
         self.doses += 1
-        selectedView.tableView.reloadData()
+        let destination = NewDoseViewController()
+        destination.modalPresentationStyle = .overFullScreen
+        navigationController?.present(destination, animated: true)
+        //selectedView.tableView.reloadData()
     }
 }

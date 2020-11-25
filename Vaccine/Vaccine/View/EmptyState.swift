@@ -51,7 +51,6 @@ extension UITableView {
             emptyImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.4)
         ])
         emptyImage.layer.cornerRadius = (UIScreen.main.bounds.width * 0.4)/2
-        print(emptyImage.frame.size.width/2)
         emptyImage.clipsToBounds = true
         
         //constraintTitle
