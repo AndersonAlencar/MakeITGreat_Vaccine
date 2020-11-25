@@ -31,4 +31,7 @@ extension UIColor {
     static let darkBlueGradiente = UIColor(red: 0.13, green: 0.64, blue: 0.87, alpha: 1.00)
 
     static let lightBlueGradiente = UIColor(red: 0.53, green: 0.82, blue: 0.95, alpha: 1.00)
+    
+    //Black used on modal background
+    static let modalBackground = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
 }

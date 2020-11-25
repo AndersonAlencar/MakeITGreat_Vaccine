@@ -8,7 +8,7 @@
 import Foundation
 
 class VaccineModel {
-
+    
     enum Status: String {
         case pending = "Vacina Pendente"
         case delayed = "Dose Atrasada"
@@ -22,9 +22,10 @@ class VaccineModel {
     let nextDosesByMonth: [Int]
     var vaccineStatus: Status
     var dosesTaken: [DoseModel]
-
-    init(id: Double, name: String, nDoses: Int, status: Status, nextDoses: [Int]) {
-        self.idVaccine = id
+    
+    init(idVaccine: Double, name: String, nDoses: Int, status: Status, nextDoses: [Int]) {
+        
+        self.idVaccine = idVaccine
         self.name = name
         self.nDoses = nDoses
         self.vaccineStatus = status
