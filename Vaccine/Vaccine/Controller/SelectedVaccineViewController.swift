@@ -10,6 +10,8 @@ import UIKit
 class SelectedVaccineViewController: UIViewController {
     
     //var doses: [DoseModel] = []
+    var vaccineSelected: VaccineModel?
+    
     lazy var selectedView: SelectedVaccineView = {
         let view = SelectedVaccineView()
         view.controller = self
@@ -23,6 +25,9 @@ class SelectedVaccineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.title = vaccineSelected?.name
     }
     
     override func loadView() {

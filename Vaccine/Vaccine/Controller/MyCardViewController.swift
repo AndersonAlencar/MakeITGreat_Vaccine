@@ -32,6 +32,9 @@ class MyCardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+
         setGradientLayer()
     }
 
@@ -96,7 +99,9 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
         80
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedVaccine = SelectedVaccineViewController()
+        selectedVaccine.vaccineSelected = filteredData[indexPath.row]
+        navigationController?.pushViewController(selectedVaccine, animated: true)
+    }
 }
