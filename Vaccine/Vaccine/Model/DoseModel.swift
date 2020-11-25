@@ -10,9 +10,9 @@ import Foundation
 class DoseModel {
     let idDose: Double
     var date: Date
-
-    init(id: Double, date: Date) {
-        self.idDose = id
+    
+    init(idDoses: Double, date: Date) {
+        self.idDose = idDoses
         self.date = date
     }
 }

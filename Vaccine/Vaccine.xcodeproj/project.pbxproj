@@ -12,11 +12,17 @@
 		38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64A4256D2EBA001BF981 /* AppColors.swift */; };
 		4BEC03F8256D4FD800E8F912 /* VaccineCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */; };
 		4BEC042F256D6B5700E8F912 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */; };
+		38AD64AD256D4D3D001BF981 /* DoseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */; };
+		38AD64B5256E7B77001BF981 /* NewDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */; };
+		38AD64BA256E7D87001BF981 /* NewDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD64B9256E7D87001BF981 /* NewDoseView.swift */; };
 		880990BF256D24630003C1DE /* GeneralData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880990BE256D24630003C1DE /* GeneralData.json */; };
 		880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990C3256D249D0003C1DE /* GeneralDataModel.swift */; };
 		E23B7302256E7A7500C19752 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7301256E7A7500C19752 /* Person.swift */; };
 		E23B7315256E9CF400C19752 /* MyCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7314256E9CF400C19752 /* MyCardTests.swift */; };
 		E265179F256D9FDA005426AF /* GeneralModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265179E256D9FDA005426AF /* GeneralModalManager.swift */; };
+		880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */; };
+		880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990EC256D34600003C1DE /* SelectedVaccineView.swift */; };
+		88428B05256D9B2100EE2172 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88428B04256D9B2100EE2172 /* EmptyState.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
 		E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */; };
 		E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B34256BFBC500D58DC5 /* ViewController.swift */; };
@@ -54,11 +60,17 @@
 		38AD64A4256D2EBA001BF981 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCellTableViewCell.swift; sourceTree = "<group>"; };
 		4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseTableViewCell.swift; sourceTree = "<group>"; };
+		38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseViewController.swift; sourceTree = "<group>"; };
+		38AD64B9256E7D87001BF981 /* NewDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseView.swift; sourceTree = "<group>"; };
 		880990BE256D24630003C1DE /* GeneralData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeneralData.json; sourceTree = "<group>"; };
 		880990C3256D249D0003C1DE /* GeneralDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataModel.swift; sourceTree = "<group>"; };
 		E23B7301256E7A7500C19752 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E23B7314256E9CF400C19752 /* MyCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTests.swift; sourceTree = "<group>"; };
 		E265179E256D9FDA005426AF /* GeneralModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModalManager.swift; sourceTree = "<group>"; };
+		880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineViewController.swift; sourceTree = "<group>"; };
+		880990EC256D34600003C1DE /* SelectedVaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineView.swift; sourceTree = "<group>"; };
+		88428B04256D9B2100EE2172 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		E2B77B2D256BFBC500D58DC5 /* Vaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +152,17 @@
 			path = Parses;
 			sourceTree = "<group>";
 		};
+		880990EB256D34300003C1DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				880990EC256D34600003C1DE /* SelectedVaccineView.swift */,
+				38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */,
+				88428B04256D9B2100EE2172 /* EmptyState.swift */,
+				38AD64B9256E7D87001BF981 /* NewDoseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E2B77B24256BFBC400D58DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +191,7 @@
 				880990BD256D23E40003C1DE /* Model */,
 				E2B77B66256BFF3C00D58DC5 /* Controller */,
 				4BEC03F6256D4F6500E8F912 /* TableCells */,
+				880990EB256D34300003C1DE /* View */,
 				E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */,
 				E2B77B32256BFBC500D58DC5 /* SceneDelegate.swift */,
 				E2B77B34256BFBC500D58DC5 /* ViewController.swift */,
@@ -204,6 +228,8 @@
 				E2B77B69256C00A000D58DC5 /* MyCardViewController.swift */,
 				E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */,
 				4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */,
+				880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */,
+				38AD64B4256E7B77001BF981 /* NewDoseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,8 +390,14 @@
 				38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */,
 				38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */,
 				880990C4256D249D0003C1DE /* GeneralDataModel.swift in Sources */,
+				88428B05256D9B2100EE2172 /* EmptyState.swift in Sources */,
 				E2B77B35256BFBC500D58DC5 /* ViewController.swift in Sources */,
+				38AD64AD256D4D3D001BF981 /* DoseTableViewCell.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
+				880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */,
+				38AD64BA256E7D87001BF981 /* NewDoseView.swift in Sources */,
+				38AD64B5256E7B77001BF981 /* NewDoseViewController.swift in Sources */,
+				880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */,
 				E2B77B6A256C00A000D58DC5 /* MyCardViewController.swift in Sources */,
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,
 				E2B77B8E256D3E9800D58DC5 /* ViewCode.swift in Sources */,
@@ -544,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XAHB7RJJD;
+				DEVELOPMENT_TEAM = BYHH9YALN2;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,7 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XAHB7RJJD;
+				DEVELOPMENT_TEAM = BYHH9YALN2;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
