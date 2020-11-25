@@ -60,9 +60,9 @@ extension MyCardView: ViewCode {
 
         NSLayoutConstraint.activate([
             vaccinesTable.topAnchor.constraint(equalTo: segmentedVaccine.bottomAnchor, constant: 10),
-            vaccinesTable.leadingAnchor.constraint(equalTo: leadingAnchor),
-            vaccinesTable.trailingAnchor.constraint(equalTo: trailingAnchor),
-            vaccinesTable.bottomAnchor.constraint(equalTo: bottomAnchor)
+            vaccinesTable.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            vaccinesTable.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            vaccinesTable.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     func aditionalConfigurations() {

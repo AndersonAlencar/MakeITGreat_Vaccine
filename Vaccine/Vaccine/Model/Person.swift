@@ -34,7 +34,7 @@ class Person {
         
     }
     
-    func loadVaccines(){
+    func loadVaccines() {
         if let path = Bundle.main.path(forResource: "GeneralData", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
