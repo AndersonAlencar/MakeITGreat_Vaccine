@@ -8,8 +8,6 @@
 import UIKit
 
 class MyCardView: UIView {
-    
-   
 
     lazy var segmentedVaccine: UISegmentedControl = {
         let segmentedVaccine = UISegmentedControl()

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Person {
     
     var vaccines = [VaccineModel]()
@@ -27,14 +26,14 @@ class Person {
     func addVaccines() {
         if let vaccinesArray = vaccinesGeneralModel {
             for vaccine in vaccinesArray {
-                let newVaccine = VaccineModel(id: Double(vaccine.idVaccine), name: vaccine.nameVaccine, nDoses: vaccine.nDoses, status: .pending, nextDoses: [1,2])
+                let newVaccine = VaccineModel(id: Double(vaccine.idVaccine), name: vaccine.nameVaccine, nDoses: vaccine.nDoses, status: .pending, nextDoses: [1, 2])
                 vaccines.append(newVaccine)
             }
         }
         
     }
     
-    func loadVaccines(){
+    func loadVaccines() {
         if let path = Bundle.main.path(forResource: "GeneralData", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)

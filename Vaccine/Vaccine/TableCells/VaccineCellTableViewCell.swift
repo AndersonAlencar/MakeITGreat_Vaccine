@@ -33,7 +33,7 @@ class VaccineCellTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .darkText
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.text = "Vacina pendente"
+        label.text = "-"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,15 +42,12 @@ class VaccineCellTableViewCell: UITableViewCell {
         let view = CircularProgressView(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
         view.trackColor = UIColor.white
         view.progressColor = UIColor.purpleAction
-        view.tag = 101
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.setProgressWithAnimation(duration: 1.0, value: 1)
         return view
     }()
 
     lazy var progressLabel: UILabel = {
         let label = UILabel()
-        label.tintColor = UIColor.white
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.text = "3/3"
@@ -70,7 +67,7 @@ class VaccineCellTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.backgroundColor = .clear
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(named: "Alert")
+        image.tintColor = .redAlert
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -81,6 +78,35 @@ class VaccineCellTableViewCell: UITableViewCell {
 
     func configure(with vaccine: VaccineModel) {
         nameLabel.text = vaccine.name
+        statusLabel.text = vaccine.vaccineStatus.rawValue
+        progressLabel.text = "\(vaccine.dosesTaken.count)/\(vaccine.nDoses)"
+        configProgress(dosesTaken: Float(vaccine.dosesTaken.count), nDoses: Float(vaccine.nDoses))
+
+        switch vaccine.vaccineStatus {
+            case .concluded:
+                doneView.backgroundColor = .purpleAction
+                progressLabel.textColor = .white
+
+            case .delayed:
+                doneView.backgroundColor = .clear
+                progressLabel.textColor = .clear
+                progressView.progressColor = .redAlert
+                let configuration = UIImage.SymbolConfiguration(pointSize: 35)
+                iconAlert.image = UIImage(systemName: "exclamationmark.circle.fill", withConfiguration: configuration)
+
+            case .pending:
+                doneView.backgroundColor = .clear
+                progressLabel.textColor = .darkText
+                
+            case .scheduled:
+                doneView.backgroundColor = .clear
+                progressLabel.textColor = .darkText
+        }
+        
+    }
+    
+    func configProgress(dosesTaken: Float, nDoses: Float) {
+        progressView.setProgressWithAnimation(duration: 1.0, value: dosesTaken/nDoses)
     }
 }
 
@@ -92,7 +118,7 @@ extension VaccineCellTableViewCell: ViewCode {
         addSubview(progressView)
         addSubview(doneView)
         addSubview(progressLabel)
-//        addSubview(iconAlert)
+        addSubview(iconAlert)
     }
     func setUpLayoutConstraints() {
         NSLayoutConstraint.activate([
@@ -126,12 +152,12 @@ extension VaccineCellTableViewCell: ViewCode {
             doneView.heightAnchor.constraint(equalToConstant: 30),
             doneView.widthAnchor.constraint(equalToConstant: 30)
         ])
-//        NSLayoutConstraint.activate([
-//            iconAlert.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
-//            iconAlert.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
-//            doneView.heightAnchor.constraint(equalToConstant: 30),
-//            doneView.widthAnchor.constraint(equalToConstant: 30)
-//        ])
+        NSLayoutConstraint.activate([
+            iconAlert.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
+            iconAlert.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
+            iconAlert.heightAnchor.constraint(equalToConstant: 35),
+            iconAlert.widthAnchor.constraint(equalToConstant: 35)
+        ])
 
     }
     func aditionalConfigurations() {
