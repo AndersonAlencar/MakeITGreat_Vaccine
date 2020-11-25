@@ -9,28 +9,49 @@ import UIKit
 
 class SelectedVaccineViewController: UIViewController {
     
-    var doses: [DoseModel] = []
+    //var doses: [DoseModel] = []
+    lazy var selectedView: SelectedVaccineView = {
+        let view = SelectedVaccineView()
+        view.controller = self
+        view.tableView.delegate = self
+        view.tableView.dataSource = self
+        view.delegate = self
+        return view
+    }()
+    var doses = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func loadView() {
-        let view = SelectedVaccineView()
-        view.controller = self
-        view.tableView.delegate = self
-        view.tableView.dataSource = self
-        self.view = view
+        self.view = selectedView
     }
 }
 extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if doses == 0 {
+            tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
+        } else {
+            tableView.restore()
+        }
+        return doses
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         return DoseTableViewCell()
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
+    }
+}
+protocol AddDelegate: class {
+    func add()
+}
+extension SelectedVaccineViewController: AddDelegate {
+    func add() {
+        self.doses += 1
+        selectedView.tableView.reloadData()
+    }
 }

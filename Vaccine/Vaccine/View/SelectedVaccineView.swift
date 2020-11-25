@@ -11,6 +11,8 @@ class SelectedVaccineView: UIView {
     
     var controller: SelectedVaccineViewController? = SelectedVaccineViewController()
     
+    weak var delegate: AddDelegate?
+    
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.showsHorizontalScrollIndicator = false
@@ -45,8 +47,13 @@ class SelectedVaccineView: UIView {
         tableConstraint()
         buttonConstraint()
         self.backgroundColor = .white
+        
+        doseButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+        
     }
-    
+    @objc func test() {
+        delegate?.add()
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

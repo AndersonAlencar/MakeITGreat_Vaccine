@@ -75,7 +75,7 @@ class DoseTableViewCell: UITableViewCell {
             backView.topAnchor.constraint(equalTo: self.topAnchor),
             backView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            backView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
     }
     
