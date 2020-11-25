@@ -11,8 +11,12 @@ class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
     
+    let person = Person.sharedPerson
+    
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
+        myView.vaccinesTable.delegate = self
+        myView.vaccinesTable.dataSource = self
         return myView
     }()
 
@@ -66,4 +70,25 @@ extension MyCardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         //if let searchText = searchController.searchBar.text
     }
+}
+
+extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return person.vaccines.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
+        cell.configure(with: person.vaccines[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
 }
