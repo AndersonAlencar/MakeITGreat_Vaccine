@@ -25,6 +25,7 @@ class SelectedVaccineViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = vaccineSelected?.name
+        self.navigationController?.navigationBar.tintColor = .purpleAction
     }
     
     override func loadView() {
@@ -74,6 +75,7 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.modalPresentationStyle = .overFullScreen
         destination.vaccineSelected = self.vaccineSelected
         destination.delegate = self
+        destination.newDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0) + 1) + "ª Dose"
         navigationController?.present(destination, animated: true)
     }
 }

@@ -45,7 +45,6 @@ class NewDoseView: UIView {
     
     lazy var doseNumber: UILabel = {
         let dNumber = UILabel()
-        dNumber.text = "1 Dose"
         dNumber.textColor = .black
         dNumber.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         dNumber.adjustsFontSizeToFitWidth = true
@@ -57,6 +56,7 @@ class NewDoseView: UIView {
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .inline
         picker.tintColor = .purpleAction
         picker.translatesAutoresizingMaskIntoConstraints = false
         
@@ -95,7 +95,7 @@ class NewDoseView: UIView {
             modalBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             modalBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             modalBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            modalBackground.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.5)
+            modalBackground.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.6)
         ])
     }
     
@@ -131,8 +131,10 @@ class NewDoseView: UIView {
         addSubview(datePicker)
         
         NSLayoutConstraint.activate([
-            datePicker.centerXAnchor.constraint(equalTo: modalBackground.centerXAnchor),
-            datePicker.topAnchor.constraint(equalTo: doseNumber.bottomAnchor, constant: 54)
+            datePicker.topAnchor.constraint(equalTo: doseNumber.bottomAnchor, constant: 24),
+            datePicker.leadingAnchor.constraint(equalTo: modalBackground.leadingAnchor, constant: 20),
+            datePicker.trailingAnchor.constraint(equalTo: modalBackground.trailingAnchor, constant: -20),
+            datePicker.heightAnchor.constraint(equalTo: modalBackground.heightAnchor, multiplier: 0.9)
         ])
         
     }

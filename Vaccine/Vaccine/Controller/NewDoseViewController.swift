@@ -31,11 +31,9 @@ class NewDoseViewController: UIViewController {
     }
     
     func addDose(date: Date) {
-        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() {
-            if vaccine.idVaccine == vaccineSelected?.idVaccine {
-                let dose = DoseModel(idDoses: 0, date: date)
-                Person.sharedPerson.vaccines[index].dosesTaken.append(dose)
-            }
+        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() where vaccine.idVaccine == vaccineSelected?.idVaccine {
+            let dose = DoseModel(idDoses: 0, date: date)
+            Person.sharedPerson.vaccines[index].dosesTaken.append(dose)
         }
         
         dismissModal()

@@ -42,7 +42,7 @@ class SelectedVaccineView: UIView {
         button.setTitleColor(.purpleAction, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         return button
-    }()
+    }() 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
