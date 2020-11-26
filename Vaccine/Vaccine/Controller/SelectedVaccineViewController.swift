@@ -34,35 +34,61 @@ class SelectedVaccineViewController: UIViewController {
 }
 
 extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if vaccineSelected?.dosesTaken.isEmpty == true {
-            tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
-        } else {
-            tableView.restore()
-        }
-        return vaccineSelected?.dosesTaken.count ?? 0
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DoseTableViewCell.identifier) as! DoseTableViewCell
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yy"
-        let doseDate = formatter.string(from: vaccineSelected?.dosesTaken[indexPath.row].date ?? Date())
-        let doseNumber = String(indexPath.row + 1) + "ª Dose"
-        
-        cell.setup(doseNumber: doseNumber, date: doseDate)
-        
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+            case 0:
+                if vaccineSelected?.dosesTaken.isEmpty == true {
+                    tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
+                } else {
+                    tableView.restore()
+                }
+                return vaccineSelected?.dosesTaken.count ?? 0
+            default:
+                if vaccineSelected?.dosesTaken.isEmpty == true {
+                    return 0
+                } else {
+                    return 1
+                }
+            }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: DoseTableViewCell.identifier) as! DoseTableViewCell
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd/MM/yy"
+                let doseDate = formatter.string(from: vaccineSelected?.dosesTaken[indexPath.row].date ?? Date())
+                let doseNumber = String(indexPath.row + 1) + "ª Dose"
+                cell.selectionStyle = .none
+                cell.setup(doseNumber: doseNumber, date: doseDate)
+                
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: WarningDoseTableViewCell.identifier) as! WarningDoseTableViewCell
+                cell.selectionStyle = .none
+                return cell
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//        }
+//    }
 }
 
 protocol AddDelegate: class {

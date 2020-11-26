@@ -20,6 +20,7 @@
 		880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */; };
 		880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990EC256D34600003C1DE /* SelectedVaccineView.swift */; };
 		88428B05256D9B2100EE2172 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88428B04256D9B2100EE2172 /* EmptyState.swift */; };
+		88907194256FF36B0019B8E6 /* WarningDoseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88907193256FF36B0019B8E6 /* WarningDoseTableViewCell.swift */; };
 		E23B7302256E7A7500C19752 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7301256E7A7500C19752 /* Person.swift */; };
 		E23B7315256E9CF400C19752 /* MyCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7314256E9CF400C19752 /* MyCardTests.swift */; };
 		E265179F256D9FDA005426AF /* GeneralModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265179E256D9FDA005426AF /* GeneralModalManager.swift */; };
@@ -68,6 +69,7 @@
 		880990E6256D31500003C1DE /* SelectedVaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineViewController.swift; sourceTree = "<group>"; };
 		880990EC256D34600003C1DE /* SelectedVaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineView.swift; sourceTree = "<group>"; };
 		88428B04256D9B2100EE2172 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		88907193256FF36B0019B8E6 /* WarningDoseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningDoseTableViewCell.swift; sourceTree = "<group>"; };
 		E23B7301256E7A7500C19752 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E23B7314256E9CF400C19752 /* MyCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTests.swift; sourceTree = "<group>"; };
 		E265179E256D9FDA005426AF /* GeneralModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModalManager.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				4BEC03F7256D4FD800E8F912 /* VaccineCellTableViewCell.swift */,
+				38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */,
+				88907193256FF36B0019B8E6 /* WarningDoseTableViewCell.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -150,7 +154,6 @@
 				4BEC042E256D6B5700E8F912 /* CircularProgressView.swift */,
 				E2B77B7C256D3C0700D58DC5 /* MyCardView.swift */,
 				880990EC256D34600003C1DE /* SelectedVaccineView.swift */,
-				38AD64AC256D4D3D001BF981 /* DoseTableViewCell.swift */,
 				88428B04256D9B2100EE2172 /* EmptyState.swift */,
 				38AD64B9256E7D87001BF981 /* NewDoseView.swift */,
 			);
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E23B7302256E7A7500C19752 /* Person.swift in Sources */,
+				88907194256FF36B0019B8E6 /* WarningDoseTableViewCell.swift in Sources */,
 				E2B77B7D256D3C0700D58DC5 /* MyCardView.swift in Sources */,
 				38AD64A5256D2EBA001BF981 /* AppColors.swift in Sources */,
 				38AD64A0256D2E85001BF981 /* VaccineModel.swift in Sources */,
@@ -576,7 +580,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XAHB7RJJD;
+				DEVELOPMENT_TEAM = BYHH9YALN2;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XAHB7RJJD;
+				DEVELOPMENT_TEAM = BYHH9YALN2;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -59,7 +59,9 @@ class NewDoseView: UIView {
         picker.preferredDatePickerStyle = .inline
         picker.tintColor = .purpleAction
         picker.translatesAutoresizingMaskIntoConstraints = false
-        
+        let loc = Locale(identifier: "pt-br")
+        picker.locale = loc
+        picker.calendar.locale = loc
         return picker
     }()
         

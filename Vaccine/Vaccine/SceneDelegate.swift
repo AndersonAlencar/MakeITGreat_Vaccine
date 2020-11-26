@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.prefersLargeTitles = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.overrideUserInterfaceStyle = .light
         window?.windowScene = windowScene
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
