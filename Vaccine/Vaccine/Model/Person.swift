@@ -23,7 +23,7 @@ class Person {
         addVaccines()
     }
     
-    func addVaccines() {
+    private func addVaccines() {
         if let vaccinesArray = vaccinesGeneralModel {
             for vaccine in vaccinesArray {
                 let newVaccine = VaccineModel(idVaccine: Double(vaccine.idVaccine), name: vaccine.nameVaccine, nDoses: vaccine.nDoses, status: .pending, nextDoses: [1, 2])
@@ -33,7 +33,7 @@ class Person {
         
     }
     
-    func loadVaccines() {
+    private func loadVaccines() {
         if let path = Bundle.main.path(forResource: "GeneralData", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
