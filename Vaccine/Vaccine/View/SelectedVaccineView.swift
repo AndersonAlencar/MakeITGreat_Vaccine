@@ -20,6 +20,7 @@ class SelectedVaccineView: UIView {
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
+        table.register(DoseTableViewCell.self, forCellReuseIdentifier: DoseTableViewCell.identifier)
         
         return table
     }()
@@ -41,7 +42,7 @@ class SelectedVaccineView: UIView {
         button.setTitleColor(.purpleAction, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         return button
-    }()
+    }() 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
