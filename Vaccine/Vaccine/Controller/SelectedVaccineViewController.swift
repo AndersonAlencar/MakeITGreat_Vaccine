@@ -89,6 +89,25 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
 //        if editingStyle == .delete {
 //        }
 //    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Deletar") { (action, view, completion) in
+            self.vaccineSelected?.dosesTaken.remove(at: indexPath.row)
+            self.selectedView.tableView.reloadData()
+            completion(true)
+        }
+        
+        action.image = UIImage(named: "trashIcon")
+        action.backgroundColor = .white
+        
+        return action
+    }
 }
 
 protocol AddDelegate: class {
