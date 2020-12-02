@@ -83,12 +83,8 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.edit(dose: indexPath.row)
     }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//        }
-//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -112,6 +108,7 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
 
 protocol AddDelegate: class {
     func add()
+    func edit(dose: Int)
 }
 
 extension SelectedVaccineViewController: AddDelegate {
@@ -121,6 +118,16 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.vaccineSelected = self.vaccineSelected
         destination.delegate = self
         destination.newDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0) + 1) + "ª Dose"
+        navigationController?.present(destination, animated: true)
+    }
+    
+    func edit(dose: Int) {
+        let destination = EditViewController()
+        destination.modalPresentationStyle = .overFullScreen
+        destination.vaccineSelected = self.vaccineSelected
+        destination.selectedDose = dose
+        destination.delegate = self
+        destination.editDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0)) + "ª Dose"
         navigationController?.present(destination, animated: true)
     }
 }
