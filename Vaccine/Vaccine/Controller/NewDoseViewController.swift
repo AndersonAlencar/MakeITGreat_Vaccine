@@ -32,7 +32,7 @@ class NewDoseViewController: UIViewController {
     
     func addDose(date: Date) {
         for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() where vaccine.idVaccine == vaccineSelected?.idVaccine {
-            let dose = DoseModel(idDoses: 0, date: date)
+            let dose = DoseModel(idDoses: 0, date: date) //Corrigir numeração do idDoses
             Person.sharedPerson.vaccines[index].dosesTaken.append(dose)
         }
         

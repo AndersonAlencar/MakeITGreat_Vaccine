@@ -21,6 +21,7 @@ class SelectedVaccineView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
         table.register(DoseTableViewCell.self, forCellReuseIdentifier: DoseTableViewCell.identifier)
+        table.register(WarningDoseTableViewCell.self, forCellReuseIdentifier: WarningDoseTableViewCell.identifier)
         
         return table
     }()

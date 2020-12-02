@@ -63,39 +63,81 @@ class SelectedVaccineViewController: UIViewController {
 }
 
 extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if vaccineSelected?.dosesTaken.isEmpty == true {
-            tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
-        } else {
-            tableView.restore()
-        }
-        return vaccineSelected?.dosesTaken.count ?? 0
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DoseTableViewCell.identifier) as! DoseTableViewCell
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yy"
-        let doseDate = formatter.string(from: vaccineSelected?.dosesTaken[indexPath.row].date ?? Date())
-        let doseNumber = String(indexPath.row + 1) + "ª Dose"
-        
-        cell.setup(doseNumber: doseNumber, date: doseDate)
-        
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+            case 0:
+                if vaccineSelected?.dosesTaken.isEmpty == true {
+                    tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
+                } else {
+                    tableView.restore()
+                }
+                return vaccineSelected?.dosesTaken.count ?? 0
+            default:
+                if vaccineSelected?.dosesTaken.isEmpty == true {
+                    return 0
+                } else {
+                    return 1
+                }
+            }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: DoseTableViewCell.identifier) as! DoseTableViewCell
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd/MM/yy"
+                let doseDate = formatter.string(from: vaccineSelected?.dosesTaken[indexPath.row].date ?? Date())
+                let doseNumber = String(indexPath.row + 1) + "ª Dose"
+                cell.selectionStyle = .none
+                cell.setup(doseNumber: doseNumber, date: doseDate)
+                
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: WarningDoseTableViewCell.identifier) as! WarningDoseTableViewCell
+                cell.selectionStyle = .none
+                return cell
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.edit(dose: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Deletar") { (action, view, completion) in
+            self.vaccineSelected?.dosesTaken.remove(at: indexPath.row)
+            self.selectedView.tableView.reloadData()
+            completion(true)
+        }
+        
+        action.image = UIImage(named: "trashIcon")
+        action.backgroundColor = .white
+        
+        return action
     }
 }
 
 protocol AddDelegate: class {
     func add()
+    func edit(dose: Int)
 }
 
 extension SelectedVaccineViewController: AddDelegate {
@@ -105,6 +147,16 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.vaccineSelected = self.vaccineSelected
         destination.delegate = self
         destination.newDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0) + 1) + "ª Dose"
+        navigationController?.present(destination, animated: true)
+    }
+    
+    func edit(dose: Int) {
+        let destination = EditViewController()
+        destination.modalPresentationStyle = .overFullScreen
+        destination.vaccineSelected = self.vaccineSelected
+        destination.selectedDose = dose
+        destination.delegate = self
+        destination.editDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0)) + "ª Dose"
         navigationController?.present(destination, animated: true)
     }
 }

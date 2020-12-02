@@ -1,15 +1,15 @@
 //
-//  NewDose.swift
+//  EditDoseView.swift
 //  Vaccine
 //
-//  Created by Felipe Santana on 25/11/20.
+//  Created by Felipe Santana on 01/12/20.
 //
 
 import UIKit
 
-class NewDoseView: UIView {
+class EditDoseView: UIView {
 
-    var controller: NewDoseViewController? = NewDoseViewController()
+    var controller: EditViewController? = EditViewController()
     weak var delegate: DismissModal?
     
     lazy var modalBackground: UIView = {
@@ -33,9 +33,9 @@ class NewDoseView: UIView {
         return button
     }()
     
-    lazy var addButton: UIButton = {
+    lazy var saveButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Adicionar", for: .normal)
+        button.setTitle("Salvar", for: .normal)
         button.setTitleColor(.purpleAction, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -76,11 +76,11 @@ class NewDoseView: UIView {
         datePickerConstraint()
         
         cancelButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
-        addButton.addTarget(self, action: #selector(addDose), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(editDose), for: .touchUpInside)
     }
     
-    @objc func addDose() {
-        self.controller?.addDose(date: datePicker.date)
+    @objc func editDose() {
+        self.controller?.editDose(date: datePicker.date)
     }
     
     @objc func dismissModal() {
@@ -121,11 +121,11 @@ class NewDoseView: UIView {
     }
     
     func addButtonConstraint() {
-        addSubview(addButton)
+        addSubview(saveButton)
         
         NSLayoutConstraint.activate([
-            addButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            addButton.topAnchor.constraint(equalTo: modalBackground.topAnchor, constant: 24)
+            saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            saveButton.topAnchor.constraint(equalTo: modalBackground.topAnchor, constant: 24)
         ])
         
     }
@@ -141,5 +141,4 @@ class NewDoseView: UIView {
         ])
         
     }
-    
 }
