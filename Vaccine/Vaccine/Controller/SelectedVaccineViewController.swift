@@ -33,6 +33,24 @@ class SelectedVaccineViewController: UIViewController {
     override func loadView() {
         self.view = selectedView
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+    }
+    
+    func changeColorBar() {
+        let colorView = UIView()
+        colorView.isUserInteractionEnabled = false
+        navigationController?.navigationBar.addSubview(colorView)
+        navigationController?.navigationBar.sendSubviewToBack(colorView)
+        colorView.frame = CGRect(x: 0, y: -UIApplication.shared.statusBarFrame.height, width: (navigationController?.navigationBar.frame.width)!, height: UIApplication.shared.statusBarFrame.height)
+        colorView.backgroundColor = .white
+    }
 }
 
 extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSource {
