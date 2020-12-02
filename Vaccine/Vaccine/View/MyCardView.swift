@@ -22,7 +22,7 @@ class MyCardView: UIView {
 
     lazy var vaccinesTable: UITableView = {
         let vaccinesTable = UITableView()
-        //vaccinesTable.separatorStyle = .none
+        vaccinesTable.separatorStyle = .none
         vaccinesTable.showsVerticalScrollIndicator = false
         vaccinesTable.bounces = false
         vaccinesTable.register(VaccineCellTableViewCell.self, forCellReuseIdentifier: VaccineCellTableViewCell.identifier)
