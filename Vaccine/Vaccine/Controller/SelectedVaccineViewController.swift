@@ -26,11 +26,22 @@ class SelectedVaccineViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = vaccineSelected?.name
         self.navigationController?.navigationBar.tintColor = .purpleAction
+        let informationButton = UIBarButtonItem(image: UIImage(systemName: "exclamationmark.circle"), style: UIBarButtonItem.Style.done, target: self, action: #selector(informationAction))
+        self.navigationItem.rightBarButtonItem = informationButton
     }
     
     override func loadView() {
         self.view = selectedView
     }
+    
+    @objc func informationAction() {
+        let destination = GeneralInformationViewController()
+        destination.vaccineSelected = self.vaccineSelected
+        let informationView = UINavigationController(rootViewController: destination)
+        informationView.navigationBar.standardAppearance.configureWithTransparentBackground()
+        navigationController?.present(informationView, animated: true)
+    }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
