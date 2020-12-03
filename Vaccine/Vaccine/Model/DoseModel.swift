@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DoseModel {
+class DoseModel: NSObject, Codable {
     let idDose: Double
     var date: Date
     

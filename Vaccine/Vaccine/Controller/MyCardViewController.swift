@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
-    
     let person = Person.sharedPerson
-    
-    var filteredData = Person.sharedPerson.vaccines
+    var filteredData: [VaccineModel]?
+    var managerCoreData = CoreDataManager()
+    var user: User?
     
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
@@ -27,8 +28,10 @@ class MyCardViewController: UIViewController {
         view = myCardView
         self.navigationItem.title = "Meu Cartão"
         setUpSearch()
+        user = managerCoreData.getUser()
+        filteredData = person.vaccines
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -43,7 +46,6 @@ class MyCardViewController: UIViewController {
         searchController.searchBar.backgroundColor = .clear
         searchController.searchBar.searchBarStyle = .prominent
         searchController.searchBar.tintColor = UIColor.black
-        // navigationItem.hidesSearchBarWhenScolling = true
         let image  = UIImage()
         searchController.searchBar.backgroundImage = image
         searchController.searchBar.searchTextField.backgroundColor = .white
@@ -120,13 +122,15 @@ extension MyCardViewController: UISearchResultsUpdating {
 
 extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return filteredData?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
         
-        cell.configure(with: filteredData[indexPath.row])
+        if let vaccine = filteredData?[indexPath.row] {
+            cell.configure(with: vaccine)
+        }
         cell.selectionStyle = .none
         return cell
     }
@@ -137,7 +141,10 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedVaccine = SelectedVaccineViewController()
-        selectedVaccine.vaccineSelected = filteredData[indexPath.row]
+        if let vaccine = filteredData?[indexPath.row] {
+            selectedVaccine.vaccineSelected = vaccine
+
+        }
         navigationController?.pushViewController(selectedVaccine, animated: true)
     }
 }
