@@ -84,7 +84,7 @@ class CoreDataManager {
         do {
             let user = try context.fetch(User.fetchRequest()) as [User]
             let vaccine = user.first?.vaccines as! Set<Vaccine>
-            print(vaccine.first?.name)
+            print(vaccine.first?.name ?? "nome da vacina não encontrada")
         } catch {
             print("Deu merda: \(error)")
         }

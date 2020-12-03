@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum StatusVaccine: Int {
     case pending
     case delayed

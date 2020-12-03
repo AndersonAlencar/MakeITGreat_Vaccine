@@ -42,7 +42,6 @@ class SelectedVaccineViewController: UIViewController {
         navigationController?.present(informationView, animated: true)
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -53,10 +52,11 @@ class SelectedVaccineViewController: UIViewController {
     
     func changeColorBar() {
         let colorView = UIView()
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         colorView.isUserInteractionEnabled = false
         navigationController?.navigationBar.addSubview(colorView)
         navigationController?.navigationBar.sendSubviewToBack(colorView)
-        colorView.frame = CGRect(x: 0, y: -UIApplication.shared.statusBarFrame.height, width: (navigationController?.navigationBar.frame.width)!, height: UIApplication.shared.statusBarFrame.height)
+        colorView.frame = CGRect(x: 0, y: -(window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0), width: (navigationController?.navigationBar.frame.width)!, height: window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
         colorView.backgroundColor = .white
     }
 }

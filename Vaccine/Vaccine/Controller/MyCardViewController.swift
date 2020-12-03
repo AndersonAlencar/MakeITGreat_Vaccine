@@ -64,14 +64,15 @@ class MyCardViewController: UIViewController {
 
         //status bar
         let colorView = UIView()
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         colorView.isUserInteractionEnabled = false
         navigationController?.navigationBar.addSubview(colorView)
         navigationController?.navigationBar.sendSubviewToBack(colorView)
-        colorView.frame = CGRect(x: 0, y: -UIApplication.shared.statusBarFrame.height, width: (navigationController?.navigationBar.frame.width)!, height: UIApplication.shared.statusBarFrame.height)
+        colorView.frame = CGRect(x: 0, y: -(window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0), width: (navigationController?.navigationBar.frame.width)!, height: window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
 
         //gradient
         var bounds = navigationController!.navigationBar.bounds
-        bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+        bounds.size.height += window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.startPoint = CGPoint(x: 1, y: 0)
