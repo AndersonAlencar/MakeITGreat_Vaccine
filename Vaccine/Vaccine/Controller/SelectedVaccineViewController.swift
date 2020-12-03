@@ -146,6 +146,7 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.vaccineSelected = self.vaccineSelected
         destination.delegate = self
         destination.newDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0) + 1) + "ª Dose"
+        selectedView.modalBackgroundView.isHidden = false
         navigationController?.present(destination, animated: true)
     }
     
@@ -156,6 +157,7 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.selectedDose = dose
         destination.delegate = self
         destination.editDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0)) + "ª Dose"
+        selectedView.modalBackgroundView.isHidden = false
         navigationController?.present(destination, animated: true)
     }
 }
@@ -166,6 +168,7 @@ protocol ReloadData: class {
 
 extension SelectedVaccineViewController: ReloadData {
     func reloadData() {
+        selectedView.modalBackgroundView.isHidden = true
         self.selectedView.tableView.reloadData()
     }
 }

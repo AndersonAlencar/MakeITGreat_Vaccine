@@ -68,7 +68,7 @@ class NewDoseView: UIView {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .modalBackground
+        //self.backgroundColor = .modalBackground
         modalBackgroundContraints()
         cancelButtonConstraint()
         doseNumberConstraint()

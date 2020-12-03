@@ -13,6 +13,13 @@ class SelectedVaccineView: UIView {
     
     weak var delegate: AddDelegate?
     
+    lazy var modalBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .modalBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.showsHorizontalScrollIndicator = false
@@ -50,6 +57,8 @@ class SelectedVaccineView: UIView {
         labelConstraint()
         tableConstraint()
         buttonConstraint()
+        modalBackgroundViewConstraint()
+        modalBackgroundView.isHidden = true
         self.backgroundColor = .white
         
         doseButton.addTarget(self, action: #selector(test), for: .touchUpInside)
@@ -62,6 +71,15 @@ class SelectedVaccineView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    func modalBackgroundViewConstraint() {
+        self.addSubview(modalBackgroundView)
+        
+        NSLayoutConstraint.activate([
+            modalBackgroundView.topAnchor.constraint(equalTo: self.topAnchor),
+            modalBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            modalBackgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            modalBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
     
     func tableConstraint() {

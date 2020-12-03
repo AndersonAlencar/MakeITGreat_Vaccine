@@ -22,7 +22,6 @@ class NewDoseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func loadView() {
