@@ -37,6 +37,8 @@ class MyCardViewController: UIViewController {
 
         //setGradientLayer()
         newGradient()
+        
+        myCardView.vaccinesTable.reloadData()
     }
 
     func setUpSearch() {

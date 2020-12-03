@@ -72,10 +72,19 @@ class VaccineCellTableViewCell: UITableViewCell {
         return image
     }()
 
-    override func layoutSubviews() {
+//    override func layoutSubviews() {
+//        setUp()
+//    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configure(with vaccine: VaccineModel) {
         
         //NÃO É RESPONSABILIDADE DA CELL
