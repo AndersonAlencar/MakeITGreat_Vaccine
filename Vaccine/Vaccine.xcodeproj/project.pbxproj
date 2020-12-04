@@ -28,7 +28,14 @@
 		880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880990EC256D34600003C1DE /* SelectedVaccineView.swift */; };
 		88428B05256D9B2100EE2172 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88428B04256D9B2100EE2172 /* EmptyState.swift */; };
 		88907194256FF36B0019B8E6 /* WarningDoseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88907193256FF36B0019B8E6 /* WarningDoseTableViewCell.swift */; };
+		E21B8400257927D1007C9086 /* Vaccine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FA257927D1007C9086 /* Vaccine+CoreDataClass.swift */; };
+		E21B8401257927D1007C9086 /* Vaccine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FB257927D1007C9086 /* Vaccine+CoreDataProperties.swift */; };
+		E21B8402257927D1007C9086 /* Dose+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FC257927D1007C9086 /* Dose+CoreDataClass.swift */; };
+		E21B8403257927D1007C9086 /* Dose+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FD257927D1007C9086 /* Dose+CoreDataProperties.swift */; };
+		E21B8404257927D1007C9086 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FE257927D1007C9086 /* User+CoreDataClass.swift */; };
+		E21B8405257927D1007C9086 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B83FF257927D1007C9086 /* User+CoreDataProperties.swift */; };
 		E23B7302256E7A7500C19752 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7301256E7A7500C19752 /* Person.swift */; };
+		E245E5732577CC11002670FA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245E5722577CC11002670FA /* CoreDataManager.swift */; };
 		E265179F256D9FDA005426AF /* GeneralModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265179E256D9FDA005426AF /* GeneralModalManager.swift */; };
 		E278B682256FEBB600BB5C6C /* VaccineTestsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278B681256FEBB600BB5C6C /* VaccineTestsModule.swift */; };
 		E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B77B30256BFBC500D58DC5 /* AppDelegate.swift */; };
@@ -74,7 +81,14 @@
 		880990EC256D34600003C1DE /* SelectedVaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVaccineView.swift; sourceTree = "<group>"; };
 		88428B04256D9B2100EE2172 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		88907193256FF36B0019B8E6 /* WarningDoseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningDoseTableViewCell.swift; sourceTree = "<group>"; };
+		E21B83FA257927D1007C9086 /* Vaccine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E21B83FB257927D1007C9086 /* Vaccine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E21B83FC257927D1007C9086 /* Dose+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E21B83FD257927D1007C9086 /* Dose+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E21B83FE257927D1007C9086 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E21B83FF257927D1007C9086 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E23B7301256E7A7500C19752 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E245E5722577CC11002670FA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E265179E256D9FDA005426AF /* GeneralModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModalManager.swift; sourceTree = "<group>"; };
 		E278B67F256FEBB600BB5C6C /* VaccineTestsModule.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VaccineTestsModule.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E278B681256FEBB600BB5C6C /* VaccineTestsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTestsModule.swift; sourceTree = "<group>"; };
@@ -135,6 +149,7 @@
 		880990BD256D23E40003C1DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E245E5712577C9D0002670FA /* CoreDataPersistence */,
 				880990BE256D24630003C1DE /* GeneralData.json */,
 				880990C3256D249D0003C1DE /* GeneralDataModel.swift */,
 				38AD649D256D2E85001BF981 /* DoseModel.swift */,
@@ -158,10 +173,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E245E5712577C9D0002670FA /* CoreDataPersistence */ = {
+			isa = PBXGroup;
+			children = (
+				E21B83FA257927D1007C9086 /* Vaccine+CoreDataClass.swift */,
+				E21B83FB257927D1007C9086 /* Vaccine+CoreDataProperties.swift */,
+				E21B83FC257927D1007C9086 /* Dose+CoreDataClass.swift */,
+				E21B83FD257927D1007C9086 /* Dose+CoreDataProperties.swift */,
+				E21B83FE257927D1007C9086 /* User+CoreDataClass.swift */,
+				E21B83FF257927D1007C9086 /* User+CoreDataProperties.swift */,
+			);
+			path = CoreDataPersistence;
+			sourceTree = "<group>";
+		};
 		E265179D256D9FB5005426AF /* Parses */ = {
 			isa = PBXGroup;
 			children = (
 				E265179E256D9FDA005426AF /* GeneralModalManager.swift */,
+				E245E5722577CC11002670FA /* CoreDataManager.swift */,
 			);
 			path = Parses;
 			sourceTree = "<group>";
@@ -366,8 +395,11 @@
 				4B33C9022571368F00524B33 /* GeneralInformationViewController.swift in Sources */,
 				E2B77B3B256BFBC500D58DC5 /* Vaccine.xcdatamodeld in Sources */,
 				4B33C90725713C5800524B33 /* GeneralInformationView.swift in Sources */,
+				E21B8403257927D1007C9086 /* Dose+CoreDataProperties.swift in Sources */,
+				E21B8400257927D1007C9086 /* Vaccine+CoreDataClass.swift in Sources */,
 				4B33C9192575147D00524B33 /* AboutVaccineTableViewCell.swift in Sources */,
 				880990E7256D31500003C1DE /* SelectedVaccineViewController.swift in Sources */,
+				E245E5732577CC11002670FA /* CoreDataManager.swift in Sources */,
 				38AD64BA256E7D87001BF981 /* NewDoseView.swift in Sources */,
 				38AD64B5256E7B77001BF981 /* NewDoseViewController.swift in Sources */,
 				880990ED256D34600003C1DE /* SelectedVaccineView.swift in Sources */,
@@ -375,14 +407,18 @@
 				E2B77B31256BFBC500D58DC5 /* AppDelegate.swift in Sources */,
 				38A0892D25767B4B007D4FE7 /* EditViewController.swift in Sources */,
 				38A0893225767BC0007D4FE7 /* EditDoseView.swift in Sources */,
+				E21B8402257927D1007C9086 /* Dose+CoreDataClass.swift in Sources */,
 				E2B77B8E256D3E9800D58DC5 /* ViewCode.swift in Sources */,
+				E21B8405257927D1007C9086 /* User+CoreDataProperties.swift in Sources */,
 				4BEC03F8256D4FD800E8F912 /* VaccineCellTableViewCell.swift in Sources */,
 				38AD649F256D2E85001BF981 /* DoseModel.swift in Sources */,
 				4B33C91425714B7900524B33 /* GeneralDataTableViewCell.swift in Sources */,
 				4B33C91E25766D4200524B33 /* TintColor.swift in Sources */,
 				4BEC042F256D6B5700E8F912 /* CircularProgressView.swift in Sources */,
 				E265179F256D9FDA005426AF /* GeneralModalManager.swift in Sources */,
+				E21B8401257927D1007C9086 /* Vaccine+CoreDataProperties.swift in Sources */,
 				E2B77B33256BFBC500D58DC5 /* SceneDelegate.swift in Sources */,
+				E21B8404257927D1007C9086 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3XAHB7RJJD;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,7 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3XAHB7RJJD;
 				INFOPLIST_FILE = Vaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

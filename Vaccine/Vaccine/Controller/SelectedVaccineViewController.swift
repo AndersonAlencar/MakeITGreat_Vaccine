@@ -42,8 +42,7 @@ class SelectedVaccineViewController: UIViewController {
         navigationController?.present(informationView, animated: true)
     }
     
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
