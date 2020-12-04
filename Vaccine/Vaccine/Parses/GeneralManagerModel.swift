@@ -7,14 +7,14 @@
 
 import Foundation
 
-class Person {
+class GeneralManagerModel {
     
     var vaccines = [VaccineModel]()
     
     private var vaccinesGeneralModel: [GeneralDataMode]?
     
-    static let sharedPerson: Person = {
-        let person = Person()
+    static let sharedPerson: GeneralManagerModel = {
+        let person = GeneralManagerModel()
         return person
     }()
     
@@ -22,7 +22,7 @@ class Person {
         loadVaccines()
         addVaccines()
     }
-    
+
     private func addVaccines() {
         if let vaccinesArray = vaccinesGeneralModel {
             for vaccine in vaccinesArray {
@@ -30,7 +30,7 @@ class Person {
                 vaccines.append(newVaccine)
             }
         }
-        
+
     }
     
     private func loadVaccines() {

@@ -10,19 +10,18 @@ import UIKit
 class EditViewController: UIViewController {
 
     weak var delegate: ReloadData?
+    var coreDataManager = CoreDataManager()
 
     lazy var editDoseView: EditDoseView = {
         let newView = EditDoseView()
-        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() where vaccine.idVaccine == vaccineSelected?.idVaccine {
-            newView.datePicker.date = Person.sharedPerson.vaccines[index].dosesTaken[selectedDose ?? 0].date
-        }
+        newView.datePicker.date = vaccineSelected?.orderedDose()[selectedDose!].date ?? Date()
         newView.controller = self
         newView.delegate = self
         return newView
     }()
     
     var selectedDose: Int?
-    var vaccineSelected: VaccineModel?
+    var vaccineSelected: Vaccine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +33,9 @@ class EditViewController: UIViewController {
     }
     
     func editDose(date: Date) {
-        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() where vaccine.idVaccine == vaccineSelected?.idVaccine {
-            guard let dose = selectedDose else { return print("Dose nil")}
-            Person.sharedPerson.vaccines[index].dosesTaken[dose].date = date
-        }
+        let doses = vaccineSelected?.orderedDose()
+        doses![selectedDose!].date = date
+        coreDataManager.saveContext()
         
         dismissModal()
         delegate?.reloadData()

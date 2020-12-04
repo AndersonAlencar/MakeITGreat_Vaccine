@@ -7,23 +7,6 @@
 
 import Foundation
 
-
-enum StatusVaccine: Int {
-    case pending
-    case delayed
-    case concluded
-    case scheduled
-    
-    var description: String {
-        switch self {
-            case .pending: return "Vacina Pendente"
-            case .delayed: return "Dose Atrasada"
-            case .concluded: return "Todas as doses tomadas"
-            case .scheduled: return "Próxima dose..."
-        }
-    }
-}
-
 enum Status: String, Codable {
     case pending = "Vacina Pendente"
     case delayed = "Dose Atrasada"

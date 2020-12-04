@@ -11,8 +11,7 @@ import CoreData
 class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
-    let person = Person.sharedPerson
-    var filteredData: [VaccineModel]?
+    var filteredData: [Vaccine]?
     var managerCoreData = CoreDataManager()
     var user: User?
     
@@ -29,7 +28,7 @@ class MyCardViewController: UIViewController {
         self.navigationItem.title = "Meu Cartão"
         setUpSearch()
         user = managerCoreData.getUser()
-        filteredData = person.vaccines
+        filteredData = managerCoreData.fetchVaccines()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,8 +112,11 @@ class MyCardViewController: UIViewController {
 extension MyCardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            filteredData = searchText.isEmpty ? person.vaccines : person.vaccines.filter({ (vaccine) -> Bool in
-                return vaccine.name.contains(searchText)
+            filteredData = searchText.isEmpty ? managerCoreData.fetchVaccines() : managerCoreData.fetchVaccines().filter({ (vaccine) -> Bool in
+                if let vaccine = vaccine.name?.contains(searchText) {
+                    return vaccine
+                }
+                return false
             })
         }
         myCardView.vaccinesTable.reloadData()
