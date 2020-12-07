@@ -11,7 +11,7 @@ class GeneralManagerModel {
     
     var vaccines = [VaccineModel]()
     
-    private var vaccinesGeneralModel: [GeneralDataMode]?
+    var vaccinesGeneralModel: [GeneralDataMode]?
     
     static let sharedPerson: GeneralManagerModel = {
         let person = GeneralManagerModel()
@@ -43,5 +43,14 @@ class GeneralManagerModel {
                 print(error)
               }
         }
+    }
+    func getVaccine(byId: Double) -> GeneralDataMode? {
+        var informationVaccine: GeneralDataMode?
+        for vaccine in vaccinesGeneralModel! {
+            if Double(vaccine.idVaccine) == byId {
+                informationVaccine = vaccine
+            }
+        }
+        return informationVaccine
     }
 }

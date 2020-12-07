@@ -38,6 +38,9 @@ class NewDoseViewController: UIViewController {
         newDose.date = date
         //newDose.idDose = 1
         vaccineSelected?.addToDose(newDose)
+        if (vaccineSelected?.dose!.count)! >= vaccineSelected!.nDoses {
+            vaccineSelected?.vaccineStatus = 2
+        }
         coreDataManager.saveContext()
         
         dismissModal()
