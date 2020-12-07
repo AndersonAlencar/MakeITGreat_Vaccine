@@ -86,12 +86,6 @@ class VaccineCellTableViewCell: UITableViewCell {
     }
     
     func configure(with vaccine: Vaccine) {
-        
-        //NÃO É RESPONSABILIDADE DA CELL
-        if vaccine.dose!.count >= vaccine.nDoses {
-            vaccine.vaccineStatus = 2
-        }
-        
         nameLabel.text = vaccine.name
         statusLabel.text = StatusVaccine(rawValue: vaccine.vaccineStatus)?.description
         progressLabel.text = "\(vaccine.dose!.count)/\(vaccine.nDoses)"

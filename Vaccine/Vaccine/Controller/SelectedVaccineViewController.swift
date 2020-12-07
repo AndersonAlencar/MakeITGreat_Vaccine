@@ -124,6 +124,9 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Deletar") { [self] (action, view, completion) in
             self.vaccineSelected?.removeFromDose((vaccineSelected?.orderedDose()[indexPath.row])!)
+            if (vaccineSelected?.dose!.count)! < vaccineSelected!.nDoses {
+                vaccineSelected?.vaccineStatus = 0
+            }
             coreDataManager.saveContext()
             self.selectedView.tableView.reloadData()
             completion(true)
