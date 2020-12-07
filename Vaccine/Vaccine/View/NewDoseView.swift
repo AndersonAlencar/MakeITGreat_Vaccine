@@ -11,6 +11,7 @@ class NewDoseView: UIView {
 
     var controller: NewDoseViewController? = NewDoseViewController()
     weak var delegate: DismissModal?
+    weak var delegate2: ViewHidden?
     
     lazy var modalBackground: UIView = {
         let mView = UIView()
@@ -85,6 +86,7 @@ class NewDoseView: UIView {
     
     @objc func dismissModal() {
         delegate?.dismissModal()
+        self.controller?.delegateViewHidden?.viewHidden()
     }
     
     required init?(coder: NSCoder) {

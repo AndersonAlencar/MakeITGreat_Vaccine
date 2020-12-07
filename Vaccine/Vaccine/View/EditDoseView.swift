@@ -84,6 +84,7 @@ class EditDoseView: UIView {
     
     @objc func dismissModal() {
         delegate?.dismissModal()
+        self.controller?.delegateViewHidden?.viewHidden()
     }
     
     required init?(coder: NSCoder) {

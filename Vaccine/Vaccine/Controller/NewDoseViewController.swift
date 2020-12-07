@@ -10,6 +10,7 @@ import UIKit
 class NewDoseViewController: UIViewController {
     
     weak var delegate: ReloadData?
+    weak var delegateViewHidden: ViewHidden?
 
     lazy var newDoseView: NewDoseView = {
         let newView = NewDoseView()
@@ -37,6 +38,7 @@ class NewDoseViewController: UIViewController {
         
         dismissModal()
         delegate?.reloadData()
+        delegateViewHidden?.viewHidden()
     }
 
 }
