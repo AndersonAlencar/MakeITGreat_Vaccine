@@ -9,7 +9,7 @@ import UIKit
 
 class GeneralInformationViewController: UIViewController {
 
-    var vaccineSelected: VaccineModel?
+    var vaccineSelected: Vaccine?
     
     lazy var generalInformationView: GeneralInformationView = {
         let myView = GeneralInformationView()

@@ -85,35 +85,35 @@ class VaccineCellTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with vaccine: VaccineModel) {
+    func configure(with vaccine: Vaccine) {
         
         //NÃO É RESPONSABILIDADE DA CELL
-        if vaccine.dosesTaken.count >= vaccine.nDoses {
-            vaccine.vaccineStatus = .concluded
+        if vaccine.dose!.count >= vaccine.nDoses {
+            vaccine.vaccineStatus = 2
         }
         
         nameLabel.text = vaccine.name
-        statusLabel.text = vaccine.vaccineStatus.rawValue
-        progressLabel.text = "\(vaccine.dosesTaken.count)/\(vaccine.nDoses)"
-        configProgress(dosesTaken: Float(vaccine.dosesTaken.count), nDoses: Float(vaccine.nDoses))
+        statusLabel.text = StatusVaccine(rawValue: vaccine.vaccineStatus)?.description
+        progressLabel.text = "\(vaccine.dose!.count)/\(vaccine.nDoses)"
+        configProgress(dosesTaken: Float(vaccine.dose!.count), nDoses: Float(vaccine.nDoses))
 
         switch vaccine.vaccineStatus {
-            case .concluded:
+            case 2:
                 doneView.backgroundColor = .purpleAction
                 progressLabel.textColor = .white
 
-            case .delayed:
+            case 1:
                 doneView.backgroundColor = .clear
                 progressLabel.textColor = .clear
                 progressView.progressColor = .redAlert
                 let configuration = UIImage.SymbolConfiguration(pointSize: 35)
                 iconAlert.image = UIImage(systemName: "exclamationmark.circle.fill", withConfiguration: configuration)
 
-            case .pending:
+            case 0:
                 doneView.backgroundColor = .clear
                 progressLabel.textColor = .darkText
-                
-            case .scheduled:
+
+            default:
                 doneView.backgroundColor = .clear
                 progressLabel.textColor = .darkText
         }

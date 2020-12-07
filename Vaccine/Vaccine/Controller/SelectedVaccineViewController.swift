@@ -9,7 +9,8 @@ import UIKit
 
 class SelectedVaccineViewController: UIViewController {
     
-    var vaccineSelected: VaccineModel?
+    var vaccineSelected: Vaccine?
+    var coreDataManager = CoreDataManager()
     
     lazy var selectedView: SelectedVaccineView = {
         let view = SelectedVaccineView()
@@ -70,14 +71,14 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             case 0:
-                if vaccineSelected?.dosesTaken.isEmpty == true {
+                if vaccineSelected?.dose!.count == 0 {
                     tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
                 } else {
                     tableView.restore()
                 }
-                return vaccineSelected?.dosesTaken.count ?? 0
+                return vaccineSelected?.dose!.count ?? 0
             default:
-                if vaccineSelected?.dosesTaken.isEmpty == true {
+                if vaccineSelected?.dose!.count == 0 {
                     return 0
                 } else {
                     return 1
@@ -96,7 +97,7 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd/MM/yy"
-                let doseDate = formatter.string(from: vaccineSelected?.dosesTaken[indexPath.row].date ?? Date())
+                let doseDate = formatter.string(from: vaccineSelected?.orderedDose()[indexPath.row].date ?? Date())
                 let doseNumber = String(indexPath.row + 1) + "ª Dose"
                 cell.selectionStyle = .none
                 cell.setup(doseNumber: doseNumber, date: doseDate)
@@ -121,8 +122,9 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Deletar") { (action, view, completion) in
-            self.vaccineSelected?.dosesTaken.remove(at: indexPath.row)
+        let action = UIContextualAction(style: .destructive, title: "Deletar") { [self] (action, view, completion) in
+            self.vaccineSelected?.removeFromDose((vaccineSelected?.orderedDose()[indexPath.row])!)
+            coreDataManager.saveContext()
             self.selectedView.tableView.reloadData()
             completion(true)
         }
@@ -145,8 +147,8 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.modalPresentationStyle = .overFullScreen
         destination.vaccineSelected = self.vaccineSelected
         destination.delegate = self
+        destination.newDoseView.doseNumber.text = "Nova Dose"
         destination.delegateViewHidden = self
-        destination.newDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0) + 1) + "ª Dose"
         selectedView.modalBackgroundView.isHidden = false
         navigationController?.present(destination, animated: true)
     }
@@ -157,8 +159,8 @@ extension SelectedVaccineViewController: AddDelegate {
         destination.vaccineSelected = self.vaccineSelected
         destination.selectedDose = dose
         destination.delegate = self
+        destination.editDoseView.doseNumber.text = "Editar Dose"
         destination.delegateViewHidden = self
-        destination.editDoseView.doseNumber.text = String((self.vaccineSelected?.dosesTaken.count ?? 0)) + "ª Dose"
         selectedView.modalBackgroundView.isHidden = false
         navigationController?.present(destination, animated: true)
     }

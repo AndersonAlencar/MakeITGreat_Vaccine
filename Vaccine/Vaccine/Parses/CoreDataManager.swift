@@ -10,7 +10,7 @@ import CoreData
 
 class CoreDataManager {
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    static var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -40,7 +40,7 @@ class CoreDataManager {
     // MARK: - Core Data Saving support
 
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = CoreDataManager.persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -53,45 +53,8 @@ class CoreDataManager {
         }
     }
     
-    func generateVaccine() {
-        let context = self.persistentContainer.viewContext
-        //user
-        let user = User(context: context)
-        
-       //vaccine
-        let vaccine = Vaccine(context: context)
-        vaccine.idVaccine = 1
-        vaccine.name = "BCG"
-        vaccine.nDoses = 2
-        vaccine.vaccineStatus = 0
-        vaccine.nextDosesByMonth = [2, 2]
-        
-        //dose
-        let dose = Dose(context: context)
-        dose.idDose = 1
-        dose.date = Date()
-        
-        //add dose
-        vaccine.addToDose(dose)
-        
-        //add vaccine
-        user.addToVaccines(vaccine)
-        saveContext()
-    }
-    
-    func getVaccine() {
-        let context = self.persistentContainer.viewContext
-        do {
-            let user = try context.fetch(User.fetchRequest()) as [User]
-            let vaccine = user.first?.vaccines as! Set<Vaccine>
-            print(vaccine.first?.name ?? "nome da vacina não encontrada")
-        } catch {
-            print("Deu merda: \(error)")
-        }
-    }
-    
     func getUser() -> User {
-        let context = self.persistentContainer.viewContext
+        let context = CoreDataManager.persistentContainer.viewContext
         var setUser = [User]()
         do {
             setUser = try (context.fetch(User.fetchRequest()) as? [User])!
@@ -100,7 +63,7 @@ class CoreDataManager {
         }
         
         if setUser.isEmpty {
-            let person = Person.sharedPerson
+            let person = GeneralManagerModel.sharedPerson
             let user = User(context: context)
             for vaccineModel in person.vaccines {
                 let vaccine = Vaccine(context: context)
@@ -108,7 +71,7 @@ class CoreDataManager {
                 vaccine.name = vaccineModel.name
                 vaccine.nDoses = Int64(vaccineModel.nDoses)
                 vaccine.vaccineStatus = 0
-                vaccine.nextDosesByMonth = vaccineModel.nextDosesByMonth
+                vaccine.nextDosesByMonth = 1 //vaccineModel.nextDosesByMonth
                 user.addToVaccines(vaccine)
             }
             saveContext()
@@ -117,4 +80,22 @@ class CoreDataManager {
             return setUser.first!
         }
     }
+    
+    func fetchVaccines() -> [Vaccine] {
+        let context = CoreDataManager.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Vaccine")
+        request.returnsObjectsAsFaults = false
+        var orderedVaccines = [Vaccine]()
+        do {
+            let result = try context.fetch(request)
+            let arrayVaccines = result as! [Vaccine]
+            orderedVaccines = arrayVaccines.sorted(by: { (vaccine1, vaccine2) -> Bool in
+                vaccine1.idVaccine < vaccine2.idVaccine
+            })
+          } catch {
+            print("Failed")
+        }
+        return orderedVaccines
+    }
+    
 }

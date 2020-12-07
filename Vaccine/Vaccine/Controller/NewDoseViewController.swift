@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class NewDoseViewController: UIViewController {
     
     weak var delegate: ReloadData?
+    
+    let coreDataManager = CoreDataManager()
     weak var delegateViewHidden: ViewHidden?
 
     lazy var newDoseView: NewDoseView = {
@@ -19,7 +22,7 @@ class NewDoseViewController: UIViewController {
         return newView
     }()
     
-    var vaccineSelected: VaccineModel?
+    var vaccineSelected: Vaccine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +34,11 @@ class NewDoseViewController: UIViewController {
     }
     
     func addDose(date: Date) {
-        for (index, vaccine) in Person.sharedPerson.vaccines.enumerated() where vaccine.idVaccine == vaccineSelected?.idVaccine {
-            let dose = DoseModel(idDoses: 0, date: date) //Corrigir numeração do idDoses
-            Person.sharedPerson.vaccines[index].dosesTaken.append(dose)
-        }
+        let newDose = Dose(context: CoreDataManager.persistentContainer.viewContext)
+        newDose.date = date
+        //newDose.idDose = 1
+        vaccineSelected?.addToDose(newDose)
+        coreDataManager.saveContext()
         
         dismissModal()
         delegate?.reloadData()

@@ -26,7 +26,7 @@ class NewDoseView: UIView {
     
     lazy var cancelButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("Cancelar", for: .normal)
         button.setTitleColor(.redAlert, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         button.translatesAutoresizingMaskIntoConstraints = false

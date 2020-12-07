@@ -18,7 +18,7 @@ extension Vaccine {
     @NSManaged public var idVaccine: Double
     @NSManaged public var name: String?
     @NSManaged public var nDoses: Int64
-    @NSManaged public var nextDosesByMonth: [Int]?
+    @NSManaged public var nextDosesByMonth: Int64
     @NSManaged public var vaccineStatus: Int64
     @NSManaged public var dose: NSSet?
     @NSManaged public var user: User?
@@ -44,4 +44,14 @@ extension Vaccine {
 
 extension Vaccine: Identifiable {
 
+}
+
+extension Vaccine {
+    func orderedDose() -> [Dose] {
+        let doseSet = self.dose as! Set<Dose>
+        let doseArray = doseSet.sorted(by: { (dose1, dose2) -> Bool in
+            dose1.date! < dose2.date!
+        })
+        return doseArray
+    }
 }

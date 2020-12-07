@@ -10,13 +10,13 @@ import XCTest
 
 class MyCardTests: XCTestCase {
 
-    var person: Person!
+    var person: GeneralManagerModel!
     var generalData: GeneralDataMode!
     var dose: DoseModel!
     var vaccine: VaccineModel!
 
     override func setUp() {
-        person = Person.sharedPerson
+        person = GeneralManagerModel.sharedPerson
         generalData = GeneralDataMode(idVaccine: 10, nameVaccine: "BCG", prevention: "TomeCuidado", nDoses: 1, indication: "Tomar com moderação", adverseEffects: "Febre", againstIndication: "Proibido para gestantes")
         dose = DoseModel(idDoses: 10, date: Date())
         vaccine = VaccineModel(idVaccine: 10, name: "BCG", nDoses: 2, status: .pending, nextDoses: [1, 2])
