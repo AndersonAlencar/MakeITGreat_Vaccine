@@ -23,6 +23,7 @@ class SelectedVaccineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MyCardViewController.colorView.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = vaccineSelected?.name
