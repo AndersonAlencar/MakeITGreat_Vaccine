@@ -11,6 +11,7 @@ class SelectedVaccineViewController: UIViewController {
     
     var vaccineSelected: Vaccine?
     var coreDataManager = CoreDataManager()
+    let colorView = UIView()
     
     lazy var selectedView: SelectedVaccineView = {
         let view = SelectedVaccineView()
@@ -23,6 +24,7 @@ class SelectedVaccineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MyCardViewController.colorView.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = vaccineSelected?.name
@@ -52,7 +54,6 @@ class SelectedVaccineViewController: UIViewController {
     }
     
     func changeColorBar() {
-        let colorView = UIView()
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         colorView.isUserInteractionEnabled = false
         navigationController?.navigationBar.addSubview(colorView)
@@ -94,7 +95,6 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
         switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DoseTableViewCell.identifier) as! DoseTableViewCell
-                
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd/MM/yy"
                 let doseDate = formatter.string(from: vaccineSelected?.orderedDose()[indexPath.row].date ?? Date())
@@ -124,6 +124,9 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Deletar") { [self] (action, view, completion) in
             self.vaccineSelected?.removeFromDose((vaccineSelected?.orderedDose()[indexPath.row])!)
+            if (vaccineSelected?.dose!.count)! < vaccineSelected!.nDoses {
+                vaccineSelected?.vaccineStatus = 0
+            }
             coreDataManager.saveContext()
             self.selectedView.tableView.reloadData()
             completion(true)

@@ -12,8 +12,10 @@ class MyCardViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
     var filteredData: [Vaccine]?
+    var listVaccines: [Vaccine]?
     var managerCoreData = CoreDataManager()
     var user: User?
+    static let colorView = UIView()
     
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
@@ -29,6 +31,8 @@ class MyCardViewController: UIViewController {
         setUpSearch()
         user = managerCoreData.getUser()
         filteredData = managerCoreData.fetchVaccines()
+        self.myCardView.segmentedVaccine.addTarget(self, action: #selector(handleSegmentedChange), for: .valueChanged)
+        listVaccines = filteredData
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +45,22 @@ class MyCardViewController: UIViewController {
         newGradient()
         
         myCardView.vaccinesTable.reloadData()
+    }
+    
+    @objc func handleSegmentedChange() {
+        switch self.myCardView.segmentedVaccine.selectedSegmentIndex {
+            case 0:
+                listVaccines = filteredData
+            case 1:
+                listVaccines = filteredData?.filter { (vaccine) -> Bool in
+                    return vaccine.vaccineStatus == 2
+                }
+            default:
+                listVaccines = filteredData?.filter { (vaccine) -> Bool in
+                    return vaccine.vaccineStatus == 0
+                }
+        }
+        self.myCardView.vaccinesTable.reloadData()
     }
 
     func setUpSearch() {
@@ -60,18 +80,18 @@ class MyCardViewController: UIViewController {
     }
     
     func newGradient() {
+        MyCardViewController.colorView.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
 
         //status bar
-        let colorView = UIView()
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        colorView.isUserInteractionEnabled = false
-        navigationController?.navigationBar.addSubview(colorView)
-        navigationController?.navigationBar.sendSubviewToBack(colorView)
-        colorView.frame = CGRect(x: 0, y: -(window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0), width: (navigationController?.navigationBar.frame.width)!, height: window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
+        MyCardViewController.colorView.isUserInteractionEnabled = false
+        navigationController?.navigationBar.addSubview(MyCardViewController.colorView)
+        navigationController?.navigationBar.sendSubviewToBack(MyCardViewController.colorView)
+        MyCardViewController.colorView.frame = CGRect(x: 0, y: -(window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0), width: (navigationController?.navigationBar.frame.width)!, height: window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
 
         //gradient
         var bounds = navigationController!.navigationBar.bounds
@@ -96,7 +116,7 @@ class MyCardViewController: UIViewController {
             //largetitle background
             navigationController?.navigationBar.backgroundColor = UIColor(patternImage: getImageFrom(gradientLayer: gradient)!)
             //status bar
-            colorView.backgroundColor = UIColor(patternImage: getImageFrom(gradientLayer: gradient)!)
+            MyCardViewController.colorView.backgroundColor = UIColor(patternImage: getImageFrom(gradientLayer: gradient)!)
             
         }
     }
@@ -116,14 +136,16 @@ class MyCardViewController: UIViewController {
 
 extension MyCardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
+        let searchUpperCase = searchController.searchBar.text?.uppercased()
+        if let searchText = searchUpperCase {
             filteredData = searchText.isEmpty ? managerCoreData.fetchVaccines() : managerCoreData.fetchVaccines().filter({ (vaccine) -> Bool in
-                if let vaccine = vaccine.name?.contains(searchText) {
+                if let vaccine = vaccine.name?.uppercased().contains(searchText) {
                     return vaccine
                 }
                 return false
             })
         }
+        handleSegmentedChange()
         myCardView.vaccinesTable.reloadData()
         
     }
@@ -131,13 +153,13 @@ extension MyCardViewController: UISearchResultsUpdating {
 
 extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData?.count ?? 0
+        return listVaccines?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
         
-        if let vaccine = filteredData?[indexPath.row] {
+        if let vaccine = listVaccines?[indexPath.row] {
             cell.configure(with: vaccine)
         }
         cell.selectionStyle = .none
@@ -150,7 +172,7 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedVaccine = SelectedVaccineViewController()
-        if let vaccine = filteredData?[indexPath.row] {
+        if let vaccine = listVaccines?[indexPath.row] {
             selectedVaccine.vaccineSelected = vaccine
         }
         navigationController?.pushViewController(selectedVaccine, animated: true)

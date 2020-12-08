@@ -99,7 +99,7 @@ class AboutVaccineTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.text = "Informações sobre a vacina foram retiradas do site SIBM - Família. Antes de tomar qualquer vacina consulte um médico para mais informações."
+        label.text = "Antes de tomar qualquer vacina consulte um médico. Informações sobre a vacina foram retiradas do site SIBM - Família. "
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
