@@ -63,4 +63,9 @@ class CircularProgressView: UIView {
         progressLayer.strokeEnd = CGFloat(value)
         progressLayer.add(animation, forKey: "animateprogress")
     }
+    
+    func setProgress(value: Float) {
+        progressLayer.strokeEnd = CGFloat(value)
+        progressLayer.removeAllAnimations()
+    }
 }

@@ -72,10 +72,6 @@ class VaccineCellTableViewCell: UITableViewCell {
         return image
     }()
 
-//    override func layoutSubviews() {
-//        setUp()
-//    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
@@ -85,22 +81,28 @@ class VaccineCellTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        progressView.setProgress(value: 0)
+    }
+    
     func configure(with vaccine: Vaccine) {
         
         //NÃO É RESPONSABILIDADE DA CELL
         if vaccine.dose!.count >= vaccine.nDoses {
             vaccine.vaccineStatus = 2
         }
-        
+
         nameLabel.text = vaccine.name
         statusLabel.text = StatusVaccine(rawValue: vaccine.vaccineStatus)?.description
         progressLabel.text = "\(vaccine.dose!.count)/\(vaccine.nDoses)"
-        configProgress(dosesTaken: Float(vaccine.dose!.count), nDoses: Float(vaccine.nDoses))
+//        progressView.setProgressWithAnimation(duration: 1.0, value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
 
         switch vaccine.vaccineStatus {
             case 2:
                 doneView.backgroundColor = .purpleAction
                 progressLabel.textColor = .white
+                setValueProgress(value: 1)
 
             case 1:
                 doneView.backgroundColor = .clear
@@ -108,10 +110,13 @@ class VaccineCellTableViewCell: UITableViewCell {
                 progressView.progressColor = .redAlert
                 let configuration = UIImage.SymbolConfiguration(pointSize: 35)
                 iconAlert.image = UIImage(systemName: "exclamationmark.circle.fill", withConfiguration: configuration)
+                setValueProgress(value: 1)
 
-            case 0:
+            case 0: //Pendente
                 doneView.backgroundColor = .clear
                 progressLabel.textColor = .darkText
+                //animaCell(with: vaccine)
+                //setValueProgress(value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
 
             default:
                 doneView.backgroundColor = .clear
@@ -120,8 +125,12 @@ class VaccineCellTableViewCell: UITableViewCell {
         
     }
     
-    func configProgress(dosesTaken: Float, nDoses: Float) {
-        progressView.setProgressWithAnimation(duration: 1.0, value: dosesTaken/nDoses)
+    func animaCell(with vaccine: Vaccine) {
+        progressView.setProgressWithAnimation(duration: 1.0, value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
+    }
+    
+    func setValueProgress(value: Float) {
+        progressView.setProgress(value: value)
     }
 }
 

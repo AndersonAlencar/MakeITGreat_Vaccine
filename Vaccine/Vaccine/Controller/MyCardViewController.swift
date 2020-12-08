@@ -152,7 +152,6 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedVaccine = SelectedVaccineViewController()
         if let vaccine = filteredData?[indexPath.row] {
             selectedVaccine.vaccineSelected = vaccine
-
         }
         navigationController?.pushViewController(selectedVaccine, animated: true)
     }
