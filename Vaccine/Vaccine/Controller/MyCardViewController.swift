@@ -17,6 +17,8 @@ class MyCardViewController: UIViewController {
     var user: User?
     static let colorView = UIView()
     
+    static var vaccineIndex: Double = 0.0
+    
     lazy var myCardView: MyCardView = {
         let myView = MyCardView()
         myView.vaccinesTable.delegate = self
@@ -160,7 +162,13 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: VaccineCellTableViewCell.identifier, for: indexPath) as! VaccineCellTableViewCell
         
         if let vaccine = listVaccines?[indexPath.row] {
-            cell.configure(with: vaccine)
+            if Int(MyCardViewController.vaccineIndex) == indexPath.row + 1 {
+                cell.configure(with: vaccine, animated: true)
+                MyCardViewController.vaccineIndex = 0
+            } else {
+                cell.configure(with: vaccine, animated: false)
+            }
+            
         }
         cell.selectionStyle = .none
         return cell

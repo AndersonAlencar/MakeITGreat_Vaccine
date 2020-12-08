@@ -129,6 +129,7 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
             }
             coreDataManager.saveContext()
             self.selectedView.tableView.reloadData()
+//            MyCardViewController.vaccineIndex = vaccineSelected?.idVaccine
             completion(true)
         }
         

@@ -42,7 +42,7 @@ class NewDoseViewController: UIViewController {
             vaccineSelected?.vaccineStatus = 2
         }
         coreDataManager.saveContext()
-        
+        MyCardViewController.vaccineIndex = vaccineSelected!.idVaccine
         dismissModal()
         delegate?.reloadData()
         delegateViewHidden?.viewHidden()

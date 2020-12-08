@@ -8,7 +8,6 @@
 import XCTest
 @testable import Vaccine
 
-
 class MyCardControllerTests: XCTestCase {
 
     var myCardController: MyCardViewController?

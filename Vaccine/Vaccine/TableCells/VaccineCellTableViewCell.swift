@@ -10,7 +10,7 @@ import UIKit
 class VaccineCellTableViewCell: UITableViewCell {
 
     static let identifier = "VaccineCellTableViewCell"
-
+    
     lazy var viewCard: UIView = {
         let view = UIView()
         view.backgroundColor = .cardGray
@@ -86,17 +86,23 @@ class VaccineCellTableViewCell: UITableViewCell {
         progressView.setProgress(value: 0)
     }
     
-    func configure(with vaccine: Vaccine) {
+    func configure(with vaccine: Vaccine, animated: Bool) {
         nameLabel.text = vaccine.name
         statusLabel.text = StatusVaccine(rawValue: vaccine.vaccineStatus)?.description
         progressLabel.text = "\(vaccine.dose!.count)/\(vaccine.nDoses)"
+        if animated {
+            progressView.setProgressWithAnimation(duration: 2.0, value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
+        } else {
+            progressView.setProgress(value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
+        }
+        
 //        progressView.setProgressWithAnimation(duration: 1.0, value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
 
         switch vaccine.vaccineStatus {
             case 2:
                 doneView.backgroundColor = .purpleAction
                 progressLabel.textColor = .white
-                setValueProgress(value: 1)
+//                setValueProgress(value: 1)
 
             case 1:
                 doneView.backgroundColor = .clear
@@ -121,6 +127,7 @@ class VaccineCellTableViewCell: UITableViewCell {
     
     func animaCell(with vaccine: Vaccine) {
         progressView.setProgressWithAnimation(duration: 1.0, value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
+        setValueProgress(value: Float(vaccine.dose!.count)/Float(vaccine.nDoses))
     }
     
     func setValueProgress(value: Float) {
