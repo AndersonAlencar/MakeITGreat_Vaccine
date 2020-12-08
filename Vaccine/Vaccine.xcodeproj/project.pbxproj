@@ -37,6 +37,9 @@
 		E2302290257A5F5E0020E47E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E230228F257A5F5E0020E47E /* Enums.swift */; };
 		E23B7302256E7A7500C19752 /* GeneralManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B7301256E7A7500C19752 /* GeneralManagerModel.swift */; };
 		E245E5732577CC11002670FA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245E5722577CC11002670FA /* CoreDataManager.swift */; };
+		E25ED332257EF0C600EF292F /* GeneralInformationControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25ED331257EF0C600EF292F /* GeneralInformationControllerTest.swift */; };
+		E25ED338257EFFB500EF292F /* MyCardControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25ED337257EFFB500EF292F /* MyCardControllerTests.swift */; };
+		E25ED33D257F051B00EF292F /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25ED33C257F051B00EF292F /* CoreDataManagerTest.swift */; };
 		E2612E4D257E630C00C7CD39 /* NewDoseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2612E4C257E630C00C7CD39 /* NewDoseController.swift */; };
 		E2612E51257E699800C7CD39 /* EditControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2612E50257E699800C7CD39 /* EditControllerTests.swift */; };
 		E2612E57257E761300C7CD39 /* SelectedControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2612E56257E761300C7CD39 /* SelectedControllerTests.swift */; };
@@ -93,6 +96,9 @@
 		E230228F257A5F5E0020E47E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		E23B7301256E7A7500C19752 /* GeneralManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralManagerModel.swift; sourceTree = "<group>"; };
 		E245E5722577CC11002670FA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E25ED331257EF0C600EF292F /* GeneralInformationControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformationControllerTest.swift; sourceTree = "<group>"; };
+		E25ED337257EFFB500EF292F /* MyCardControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardControllerTests.swift; sourceTree = "<group>"; };
+		E25ED33C257F051B00EF292F /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		E2612E4C257E630C00C7CD39 /* NewDoseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseController.swift; sourceTree = "<group>"; };
 		E2612E50257E699800C7CD39 /* EditControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditControllerTests.swift; sourceTree = "<group>"; };
 		E2612E56257E761300C7CD39 /* SelectedControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedControllerTests.swift; sourceTree = "<group>"; };
@@ -192,6 +198,27 @@
 			path = CoreDataPersistence;
 			sourceTree = "<group>";
 		};
+		E25ED33B257F050300EF292F /* TestParses */ = {
+			isa = PBXGroup;
+			children = (
+				E25ED33C257F051B00EF292F /* CoreDataManagerTest.swift */,
+			);
+			path = TestParses;
+			sourceTree = "<group>";
+		};
+		E2612E62257EEFD600C7CD39 /* TestControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E278B681256FEBB600BB5C6C /* VaccineTestsModule.swift */,
+				E2612E4C257E630C00C7CD39 /* NewDoseController.swift */,
+				E2612E50257E699800C7CD39 /* EditControllerTests.swift */,
+				E2612E56257E761300C7CD39 /* SelectedControllerTests.swift */,
+				E25ED331257EF0C600EF292F /* GeneralInformationControllerTest.swift */,
+				E25ED337257EFFB500EF292F /* MyCardControllerTests.swift */,
+			);
+			path = TestControllers;
+			sourceTree = "<group>";
+		};
 		E265179D256D9FB5005426AF /* Parses */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,10 +231,8 @@
 		E278B680256FEBB600BB5C6C /* VaccineTestsModule */ = {
 			isa = PBXGroup;
 			children = (
-				E278B681256FEBB600BB5C6C /* VaccineTestsModule.swift */,
-				E2612E4C257E630C00C7CD39 /* NewDoseController.swift */,
-				E2612E50257E699800C7CD39 /* EditControllerTests.swift */,
-				E2612E56257E761300C7CD39 /* SelectedControllerTests.swift */,
+				E25ED33B257F050300EF292F /* TestParses */,
+				E2612E62257EEFD600C7CD39 /* TestControllers */,
 				E278B683256FEBB600BB5C6C /* Info.plist */,
 			);
 			path = VaccineTestsModule;
@@ -386,8 +411,11 @@
 			files = (
 				E2612E57257E761300C7CD39 /* SelectedControllerTests.swift in Sources */,
 				E2612E51257E699800C7CD39 /* EditControllerTests.swift in Sources */,
+				E25ED33D257F051B00EF292F /* CoreDataManagerTest.swift in Sources */,
 				E278B682256FEBB600BB5C6C /* VaccineTestsModule.swift in Sources */,
 				E2612E4D257E630C00C7CD39 /* NewDoseController.swift in Sources */,
+				E25ED332257EF0C600EF292F /* GeneralInformationControllerTest.swift in Sources */,
+				E25ED338257EFFB500EF292F /* MyCardControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

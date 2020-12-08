@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import UIKit
 @testable import Vaccine
 
 class SelectedControllerTests: XCTestCase {
@@ -24,6 +25,7 @@ class SelectedControllerTests: XCTestCase {
         selectedController = nil
         coreDataManager = nil
         navigationController = nil
+        
     }
     
     func testColoBar() {
@@ -102,4 +104,37 @@ class SelectedControllerTests: XCTestCase {
         selectedController?.viewHidden()
         XCTAssertTrue(((selectedController?.selectedView.isHidden) != nil))
     }
+    
+    func testTableView() {
+        let vaccine = coreDataManager?.fetchVaccines().first
+        selectedController?.vaccineSelected = vaccine
+        let tableView = selectedController?.selectedView.tableView
+        
+        var indexPath = IndexPath(row: 0, section: 0)
+        let cell = (tableView?.dataSource?.tableView(tableView!, cellForRowAt: indexPath))! as! DoseTableViewCell
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yy"
+        
+        let doseDate = formatter.string(from: selectedController?.vaccineSelected?.orderedDose()[indexPath.row].date ?? Date())
+
+        XCTAssertEqual(doseDate, formatter.string(from: Date()))
+        XCTAssertEqual(vaccine?.orderedDose().count, tableView?.dataSource?.tableView(tableView!, numberOfRowsInSection: 0))
+        XCTAssertNotNil(cell)
+
+        indexPath = IndexPath(row: 0, section: 1)
+        let cell2 = (tableView?.dataSource?.tableView(tableView!, cellForRowAt: indexPath))! as! WarningDoseTableViewCell
+        XCTAssertEqual(cell2.warningText.text, "Sempre leve o seu cartão de vacinação para registrar as doses. Esse aplicativo não substitui orientação médica.")
+        XCTAssertNotNil(cell2)
+    }
+    
+    func testEmptyStage() {
+        let vaccine = coreDataManager?.fetchVaccines()[1]
+        selectedController?.vaccineSelected = vaccine
+        let tableView = selectedController?.selectedView.tableView
+        
+        let empty = selectedController?.tableView(tableView!, numberOfRowsInSection: 0)
+        XCTAssertNotNil(empty)
+    }
+    
 }
