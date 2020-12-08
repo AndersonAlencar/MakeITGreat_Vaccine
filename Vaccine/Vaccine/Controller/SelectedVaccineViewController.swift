@@ -73,7 +73,7 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
         switch section {
             case 0:
                 if vaccineSelected?.dose!.count == 0 {
-                    tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "Vacina1")
+                    tableView.emptyState(textTitle: "Nenhuma dose registrada", textDescription: "Adicione uma nova dose clicando em Nova Dose", image: "ES-Doses")
                 } else {
                     tableView.restore()
                 }

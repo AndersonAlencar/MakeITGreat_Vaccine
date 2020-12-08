@@ -144,8 +144,14 @@ extension MyCardViewController: UISearchResultsUpdating {
                 if let vaccine = vaccine.name?.uppercased().contains(searchText) {
                     return vaccine
                 }
+                
                 return false
             })
+        }
+        if filteredData?.count == 0 {
+            DispatchQueue.main.async {
+                self.myCardView.vaccinesTable.emptyState(textTitle: "Nenhuma vacina encontrada", textDescription: "", image: "ES-Search")
+            }
         }
         handleSegmentedChange()
         myCardView.vaccinesTable.reloadData()
@@ -155,6 +161,13 @@ extension MyCardViewController: UISearchResultsUpdating {
 
 extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if listVaccines?.count ?? 0 == 0 && self.myCardView.segmentedVaccine.selectedSegmentIndex == 1 {
+            tableView.emptyState(textTitle: "Nenhuma dose tomada", textDescription: "", image: "ES-NotVac")
+        } else if listVaccines?.count ?? 0 == 0 && self.myCardView.segmentedVaccine.selectedSegmentIndex == 2 {
+            tableView.emptyState(textTitle: "Parabéns", textDescription: "Você tomou todas as vacinas", image: "ES-Taken")
+        } else {
+            tableView.restore()
+        }
         return listVaccines?.count ?? 0
     }
 
