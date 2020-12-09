@@ -27,6 +27,7 @@ class MyCardView: UIView {
         vaccinesTable.bounces = false
         vaccinesTable.register(VaccineCellTableViewCell.self, forCellReuseIdentifier: VaccineCellTableViewCell.identifier)
         vaccinesTable.tableFooterView = UIView()
+        vaccinesTable.separatorStyle = .none
         vaccinesTable.translatesAutoresizingMaskIntoConstraints = false
         return vaccinesTable
     }()

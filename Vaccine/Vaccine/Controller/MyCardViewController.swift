@@ -45,7 +45,6 @@ class MyCardViewController: UIViewController {
 
         //setGradientLayer()
         newGradient()
-        
         myCardView.vaccinesTable.reloadData()
     }
     
@@ -78,6 +77,8 @@ class MyCardViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Pesquisar"
+        searchController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white], for: .normal)
         navigationItem.searchController = searchController
     }
     
@@ -150,7 +151,7 @@ extension MyCardViewController: UISearchResultsUpdating {
         }
         if filteredData?.count == 0 {
             DispatchQueue.main.async {
-                self.myCardView.vaccinesTable.emptyState(textTitle: "Nenhuma vacina encontrada", textDescription: "", image: "ES-Search")
+                self.myCardView.vaccinesTable.emptyState(textTitle: "", textDescription: "Nenhuma vacina encontrada", image: "ES-Search")
             }
         }
         handleSegmentedChange()
@@ -162,7 +163,7 @@ extension MyCardViewController: UISearchResultsUpdating {
 extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listVaccines?.count ?? 0 == 0 && self.myCardView.segmentedVaccine.selectedSegmentIndex == 1 {
-            tableView.emptyState(textTitle: "Nenhuma dose tomada", textDescription: "", image: "ES-NotVac")
+            tableView.emptyState(textTitle: "", textDescription: "Você ainda não completou nenhuma vacina", image: "ES-NotVac")
         } else if listVaccines?.count ?? 0 == 0 && self.myCardView.segmentedVaccine.selectedSegmentIndex == 2 {
             tableView.emptyState(textTitle: "Parabéns", textDescription: "Você tomou todas as vacinas", image: "ES-Taken")
         } else {
@@ -196,6 +197,7 @@ extension MyCardViewController: UITableViewDelegate, UITableViewDataSource {
         if let vaccine = listVaccines?[indexPath.row] {
             selectedVaccine.vaccineSelected = vaccine
         }
+        selectedVaccine.cardViewController = self
         navigationController?.pushViewController(selectedVaccine, animated: true)
     }
 }

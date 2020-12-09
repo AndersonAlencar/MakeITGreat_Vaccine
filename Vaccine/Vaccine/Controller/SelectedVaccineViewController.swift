@@ -12,6 +12,7 @@ class SelectedVaccineViewController: UIViewController {
     var vaccineSelected: Vaccine?
     var coreDataManager = CoreDataManager()
     let colorView = UIView()
+    var cardViewController: MyCardViewController?
     
     lazy var selectedView: SelectedVaccineView = {
         let view = SelectedVaccineView()
@@ -128,8 +129,8 @@ extension SelectedVaccineViewController: UITableViewDelegate, UITableViewDataSou
                 vaccineSelected?.vaccineStatus = 0
             }
             coreDataManager.saveContext()
+            cardViewController?.handleSegmentedChange()
             self.selectedView.tableView.reloadData()
-//            MyCardViewController.vaccineIndex = vaccineSelected?.idVaccine
             completion(true)
         }
         
